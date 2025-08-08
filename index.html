@@ -2,56 +2,87 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Georgios Sid | Robotics Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Georgios Sidiropoulos | Robotics Portfolio</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="home-page">
 
   <!-- Welcome Overlay -->
-  <div id="welcome-overlay" role="dialog" aria-modal="true">
-    <div class="welcome-content">
+  <div id="welcome-overlay">
+    <div class="welcome-circle">
       <h1>Welcome</h1>
-      <p>I’m Georgios Sidiropoulos, a Computer Science Engineer with a passion for Robotics and Machine Learning.</p>
-      <button onclick="hideOverlay()" aria-label="Enter Site">Enter</button>
+      <p>I'm Georgios Sidiropoulos</p>
+      <p>A Computer Science Engineer with a passion for Robotics and Machine Learning.</p>
     </div>
   </div>
 
-  <!-- Main Content -->
-  <div id="main-content">
-    <header>
-      <h1>Georgios Sid</h1>
-      <p>Computer Science Student | Robotics Developer</p>
-    </header>
-
-    <section id="about">
-      <h2>About</h2>
-      <p>I specialize in software for robotics applications, including embedded systems, ROS, and intelligent automation. I am currently pursuing a degree in Computer Science.</p>
-    </section>
-
-    <section id="projects">
-      <h2>Projects</h2>
-      <div class="project">
-        <h3>Line Follower Robot</h3>
-        <p>Designed and programmed a robot using Arduino and infrared sensors to autonomously follow a path.</p>
+  <div id="main-content" class="layout">
+    <aside class="sidebar">
+      <div class="profile-pic">
+        <img src="media/profile.png" alt="Georgios Sidiropoulos" />
       </div>
-      <div class="project">
-        <h3>Autonomous Navigation with ROS</h3>
-        <p>Implemented SLAM and path-planning algorithms in a simulated environment using ROS and Gazebo.</p>
+      <nav>
+        <ul class="sidebar-nav">
+          <li><a href="index.html" class="active">About</a></li>
+          <li><a href="experience.html">Experience</a></li>
+          <li><a href="skills.html">Skills</a></li>
+          <li><a href="hobbies.html">Hobbies</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <h1><span class="first-name">GEORGIOS</span> <span class="last-name">SIDIROPOULOS</span></h1>
+      <p class="subtitle">Robotics Software Engineer Intern at Parity Platform, Athens, Greece.</p>
+
+      <section id="about">
+        <h2>About Me</h2>
+        <p>I am a Computer Science and Engineering graduate from the University of Ioannina, currently working as a Robotics Software Engineering Intern at Parity Platform. My main interests include robotics, artificial intelligence, and machine learning.</p>
+        <p>My diploma thesis, <strong>“Navigation of a Mobile Manipulator in a Dynamic Environment”</strong>, focused on motion planning and avoidance of dynamic obstacles.</p>
+      </section>
+
+      <!-- Social icons -->
+      <div class="social-icons">
+        <a href="https://github.com/GeorgiosSid" target="_blank">
+          <img src="media/icons/github_icon.png" alt="GitHub" />
+        </a>
+        <a href="https://www.linkedin.com/in/sidiropoulosgeorgios/" target="_blank">
+          <img src="media/icons/linkedin_icon.png" alt="LinkedIn" />
+        </a>
+        <a href="mailto:sidiropoulosgeorgios000@gmail.com">
+          <img src="media/icons/gmail_icon.png" alt="Gmail" />
+        </a>
       </div>
-    </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:sidiropoulosgeorgios000@gmail.com">sidiropoulosgeorgios000@gmail.com</a></p>
-      <p>GitHub: <a href="https://github.com/GeorgiosSid" target="_blank">GeorgiosSid</a></p>
-    </section>
-
-    <footer>
-      <p>&copy; 2025 Georgios Sid. All rights reserved.</p>
-    </footer>
+    </main>
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    let hasExited = false;
+    const autoDismissTimer = setTimeout(() => {
+      if (hasExited) return;
+      hasExited = true;
+      bounceThenExit();
+    }, 10000);
+
+    window.addEventListener('click', () => {
+      if (hasExited) return;
+      hasExited = true;
+      clearTimeout(autoDismissTimer);
+      bounceThenExit();
+    });
+
+    function bounceThenExit() {
+      const circle = document.querySelector('.welcome-circle');
+      circle.classList.add('bounce-exit');
+      setTimeout(() => dismissOverlay(), 500);
+    }
+
+    function dismissOverlay() {
+      document.getElementById('welcome-overlay').remove();
+      document.body.classList.add('active');
+    }
+  </script>
 </body>
 </html>
