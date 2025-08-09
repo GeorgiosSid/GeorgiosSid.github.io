@@ -2,7 +2,7 @@
 .hobby-grid { display: flex; flex-direction: column; gap: 1.1rem; }
 .hobby-grid > .card { width: 100%; max-width: 1100px; margin: 0 auto; }
 
-/* ----- Lock the order with grid-areas (tabs → gallery → map) ----- */
+/* ----- Lock the order with grid-areas (title → intro → subtitle → tabs → gallery → map) ----- */
 #hobby-hiking{
   width: 100%;
   max-width: 1100px;
@@ -11,6 +11,7 @@
   grid-template-columns: 1fr;
   grid-template-areas:
     "title"
+    "intro"
     "subtitle"
     "tabs"
     "gallery"
@@ -21,10 +22,22 @@
 
 /* Force areas (override any old grid-column rules) */
 #hobby-hiking .card-title     { grid-area: title    !important; grid-column: auto !important; }
+#hobby-hiking .card-intro     { grid-area: intro    !important; grid-column: auto !important; }
 #hobby-hiking .card-subtitle  { grid-area: subtitle !important; grid-column: auto !important; }
 #hikePlaces                   { grid-area: tabs     !important; grid-column: auto !important; }
 #hikingGallery                { grid-area: gallery  !important; grid-column: auto !important; }
 #hikeMap                      { grid-area: map      !important; grid-column: auto !important; }
+
+/* Hiking intro line (friendly catch phrase) */
+#hobby-hiking .card-intro{
+  color: var(--text);
+  font-weight: 600;
+  line-height: 1.35;
+  margin: .1rem 0 .35rem; /* sits nicely above the subtitle */
+}
+
+/* Keep the subtitle tucked closer to the intro than the map */
+#hobby-hiking .card-subtitle{ margin-top: .1rem; }
 
 /* Map height */
 #hobby-hiking .map{
@@ -51,6 +64,10 @@
 .hike-tabs .tab[aria-selected="true"]{
   background: var(--brand); border-color: transparent; color:#fff;
   box-shadow: 0 6px 16px rgba(0,0,0,.25);
+}
+.hike-tabs .tab:focus-visible{
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
 }
 
 /* Slides per view (3) */

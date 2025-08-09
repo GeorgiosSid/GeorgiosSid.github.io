@@ -5,14 +5,14 @@ const hikingPlaces = [
     name: { en: "Verliga Alpine Lake", el: "Βερλίγκα" },
     lat: 39.526, lng: 21.095,
     photos: [
-      "media/hobbies/hiking/verliga/1.jpg",
-      "media/hobbies/hiking/verliga/2.jpg",
-      "media/hobbies/hiking/verliga/3.jpg"
+      "media/hobbies/hiking/verligka/1.jpg",
+      "media/hobbies/hiking/verligka/2.jpg",
+      "media/hobbies/hiking/verligka/3.jpg"
     ]
   },
   {
     id: "timfi",
-    name: { en: "Mt Timfi", el: "Τύμφη" },
+    name: { en: "Timfi Alpine Lake", el: "Τύμφη" },
     lat: 39.97, lng: 20.78,
     photos: [
       "media/hobbies/hiking/timphi/1.jpg",
@@ -37,6 +37,18 @@ const hikingPlaces = [
       "media/hobbies/hiking/faragki_vikou/6.jpg"
     ]
   }
+  ,
+    {
+    id: "rila",
+    name: { en: "Seven Rila Lakes", el: "Επτά Λίμνες Ρίλα" },
+    lat: 42.2008, lng: 23.3046,
+    photos: [
+        "media/hobbies/hiking/Seven_Rila_Lakes/1.jpg",
+        "media/hobbies/hiking/Seven_Rila_Lakes/2.jpg",
+        "media/hobbies/hiking/Seven_Rila_Lakes/3.jpg"
+    ]
+    }
+
 ];
 
 // State

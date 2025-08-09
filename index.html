@@ -277,8 +277,12 @@
            <!-- Hiking -->
             <article class="card" id="hobby-hiking">
               <h3 class="card-title" data-i18n="hobbies.hiking.title">Hiking</h3>
+              <p class="card-intro" data-i18n="hobbies.hiking.catch">
+                I love getting out into nature and chasing summits — want to join for a hike sometime?
+              </p>
+
               <p class="card-subtitle" data-i18n="hobbies.hiking.sub">
-                Tap a marker to filter photos from that place.
+                Tap a map marker to see photos from that place. Swipe the carousel or click a photo to view fullscreen. 🥾
               </p>
 
               <!-- TABS FIRST -->
@@ -301,32 +305,77 @@
                 <img src="media/hobbies/chesscom_logo.svg" alt="Chess.com" width="140" height="36" />
               </a>
             </article>
-
-            <!-- Basketball -->
-            <article class="card" id="hobby-basketball">
-              <h3 class="card-title" data-i18n="hobbies.basket.title">Basketball</h3>
-              <p class="card-subtitle" data-i18n="hobbies.basket.sub">I try to shoot some hoops every week.</p>
-              <img class="basket-photo" src="media/hobbies/basketball.jpg" loading="lazy" alt="Basketball" />
-            </article>
           </div>
         </div>
       </section>
 
+      <!-- CONTACT -->
       <section id="contact" class="band band-a">
         <div class="container">
           <div class="section-chip" data-i18n="sections.contact">Contact</div>
-          <p class="section-subtitle" data-i18n="contact.subtitle">Feel free to reach out for collaboration or inquiries:</p>
-          <div class="card">
-            <p><span data-i18n="contact.emailLabel">Email:</span> <a href="mailto:sidiropoulosgeorgios000@gmail.com">sidiropoulosgeorgios000@gmail.com</a></p>
-            <p><span data-i18n="contact.githubLabel">GitHub:</span> <a href="https://github.com/GeorgiosSid" target="_blank" rel="noopener noreferrer">GeorgiosSid</a></p>
-            <p><span data-i18n="contact.linkedinLabel">LinkedIn:</span> <a href="https://www.linkedin.com/in/sidiropoulosgeorgios/" target="_blank" rel="noopener noreferrer">sidiropoulosgeorgios</a></p>
+
+          <div class="contact-hero card">
+            <div class="contact-cta-wrap">
+              <a class="btn-cta" href="mailto:sidiropoulosgeorgios000@gmail.com" data-i18n="contact.cta">
+                Get in touch
+              </a>
+            </div>
+
+            <p class="contact-lead" data-i18n="contact.lead">
+              What’s next? Feel free to reach out if you’re looking for a developer,
+              have a question, or simply want to connect.
+            </p>
+
+            <div class="contact-ways">
+              <!-- Email row -->
+              <div class="contact-row">
+                <svg class="contact-ico" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm0 2l8 5 8-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <a id="emailLink"
+                  class="contact-value"
+                  href="mailto:sidiropoulosgeorgios000@gmail.com">
+                  sidiropoulosgeorgios000@gmail.com
+                </a>
+                <button class="copy-btn" data-copy="sidiropoulosgeorgios000@gmail.com" aria-label="Copy email">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 3H8a2 2 0 0 0-2 2v10h2V5h8V3zm3 4H10a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zm0 12H10V9h9v10z" fill="currentColor"/></svg>
+                </button>
+              </div>
+
+              <!-- Phone row (edit the number if different) -->
+              <div class="contact-row">
+                <svg class="contact-ico" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.86 19.86 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72 12.66 12.66 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.22a2 2 0 0 1 2.11-.45 12.66 12.66 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" fill="currentColor"/></svg>
+                <a class="contact-value" href="tel:+306982006710">+30 698 200 6710</a>
+                <button class="copy-btn" data-copy="+30 698 200 6710" aria-label="Copy phone">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 3H8a2 2 0 0 0-2 2v10h2V5h8V3zm3 4H10a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zm0 12H10V9h9v10z" fill="currentColor"/></svg>
+                </button>
+              </div>
+            </div>
+
+            <p class="contact-also" data-i18n="contact.findMe">You may also find me on these platforms!</p>
+
+            <div class="contact-social">
+              <a href="https://github.com/GeorgiosSid" target="_blank" rel="noopener" aria-label="GitHub">
+                <img src="media/icons/github_icon.png" alt="" width="34" height="34">
+              </a>
+              <a href="https://www.linkedin.com/in/sidiropoulosgeorgios/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                <img src="media/icons/linkedin_icon.png" alt="" width="34" height="34">
+              </a>
+              <a href="mailto:sidiropoulosgeorgios000@gmail.com" aria-label="Email">
+                <img src="media/icons/gmail_icon.png" alt="" width="34" height="34">
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
-      <footer class="footer">
-        <p data-i18n="footer.text">© 2025 Georgios Sidiropoulos. All rights reserved.</p>
-      </footer>
+    <footer class="footer">
+      <p class="made" data-i18n="footer.made">
+        © 2025 &nbsp;|&nbsp; Designed and coded with <span class="heart">❤</span> by Georgios Sidiropoulos
+      </p>
+    </footer>
+
     </main>
   </div>
 
@@ -343,5 +392,6 @@
   <script defer src="assets/js/overlay.js"></script>
   <script defer src="assets/js/scrolltop.js"></script>
   <script defer src="assets/js/hobbies.js"></script>
+  <script defer src="assets/js/contact.js"></script>
 </body>
 </html>

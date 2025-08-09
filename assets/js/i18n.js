@@ -2,13 +2,17 @@
 (function () {
   const I18N = {
     en: {
-      "meta.title": "Georgios Sidiropoulos | Robotics Portfolio",
+      "meta.title": "Georgios Sidiropoulos | Portfolio",
       "meta.description": "Portfolio of Georgios Sidiropoulos — Robotics & ML projects, experience, skills, and contact.",
+
+      // Generic / Buttons
       "skip.toMain": "Skip to main content",
       "buttons.cv": "⬇️ Download CV",
       "buttons.top": "↑ Top",
       "buttons.topTitle": "Go to top",
       "buttons.topAria": "Scroll to top",
+
+      // ARIA / labels
       "theme.toggle": "Toggle theme",
       "aria.sidebar": "Sidebar",
       "aria.navPrimary": "Primary navigation",
@@ -20,6 +24,8 @@
       "aria.email": "Email Georgios",
       "aria.welcome": "Welcome",
       "alt.profilePic": "Portrait of Georgios Sidiropoulos",
+
+      // Nav
       "nav.about": "About",
       "nav.experience": "Experience",
       "nav.education": "Education",
@@ -27,7 +33,11 @@
       "nav.skills": "Skills",
       "nav.hobbies": "Hobbies",
       "nav.contact": "Contact",
+
+      // Hero
       "hero.subtitle": "<strong>🤖 Robotics Software Engineer</strong> — 💼 Intern at Parity Platform, 📍 Athens, Greece.",
+
+      // Sections (chips)
       "sections.about": "About",
       "sections.experience": "Experience",
       "sections.education": "Education",
@@ -35,11 +45,17 @@
       "sections.skills": "Skills",
       "sections.hobbies": "Hobbies",
       "sections.contact": "Contact",
+
+      // Overlay
       "overlay.title": "Welcome <span class='wave' aria-hidden='true'>👋</span>",
       "overlay.line1": "I'm Georgios Sidiropoulos",
       "overlay.line2": "A Computer Science Engineer with a passion for Robotics and Machine Learning.",
+
+      // About
       "about.p1": "I am a Computer Science and Engineering graduate from the University of Ioannina, currently working as a Robotics Software Engineering Intern at Parity Platform. My main interests include robotics, artificial intelligence, and machine learning.",
       "about.p2": "My diploma thesis, <strong>“Navigation of a Mobile Manipulator in a Dynamic Environment”</strong>, focused on motion planning and avoidance of dynamic obstacles.",
+
+      // Experience
       "experience.subtitle": "Here is a quick summary of my most recent experiences:",
       "experience.parity.title": "Robotics Engineer Intern <span class='card-meta'>Jul 2025 – Present</span>",
       "experience.parity.place": "<em>Parity Platform — Athens, Greece</em>",
@@ -50,8 +66,12 @@
       "experience.uoi.place": "<em>University of Ioannina</em>",
       "experience.uoi.li1": "Presented and showcased Robotics Laboratory work to middle/high-school students and guests.",
       "experience.uoi.li2": "Explained how robotic systems function, demonstrated real-world use cases, and inspired younger audiences to pursue computer science and robotics.",
+
+      // Education
       "education.subtitle": "My academic background and qualifications:",
       "education.degreeHTML": "<strong><a href='https://www.cse.uoi.gr/' target='_blank' rel='noopener noreferrer'>University of Ioannina — Department of Computer Science &amp; Engineering</a></strong><br/>Integrated Master (BSc/MEng) in Computer Science &amp; Engineering<br/>2019 – 2025 &nbsp;|&nbsp; Grade: <strong>7.8 / 10</strong><br/>Thesis: “Navigation of a Mobile Manipulator in a Dynamic Environment”.",
+
+      // Projects
       "projects.subtitle": "A selection of my recent projects:",
       "projects.p1.title": "Navigation of a Mobile Manipulator in a Dynamic Environment",
       "projects.p1.meta": "<em>October 2024 – Present &nbsp;|&nbsp; Diploma Thesis in Robotics</em>",
@@ -80,14 +100,21 @@
       "projects.p6.meta": "<em>December 2022 – January 2023</em>",
       "projects.p6.li1": "Java GUI app for managing sales agent data and commission reports.",
       "projects.p6.li2": "Emphasized modular design and multi-format export with clean architecture.",
+
+      // Skills
       "skills.subtitle": "The skills, tools and technologies I am really good at.",
+
+      // Hobbies
       "hobbies.subtitle": "What I do in my free time:",
       "hobbies.hiking.title": "Hiking",
-      "hobbies.hiking.sub": "Tap a marker to filter photos from that place.",
+      "hobbies.hiking.catch": "I love getting out into nature and chasing summits — want to join for a hike sometime?",
+      "hobbies.hiking.sub": "Tap a map marker to see photos from that place. Swipe the carousel or click a photo to view fullscreen. 🥾",
       "hobbies.chess.title": "Chess",
       "hobbies.chess.sub": "Chess is my favorite search problem — <strong>minimax in real time</strong>. I mostly play 10-minute rapid and solve puzzles to sharpen pattern recognition. If you’re up for a friendly rapid or a faster bullet game, click the logo and send a challenge. ♟️🙂",
       "hobbies.basket.title": "Basketball",
       "hobbies.basket.sub": "I try to shoot some hoops every week.",
+
+      // Contact / Footer
       "contact.subtitle": "Feel free to reach out for collaboration or inquiries:",
       "contact.emailLabel": "Email:",
       "contact.githubLabel": "GitHub:",
@@ -96,13 +123,17 @@
     },
 
     el: {
-      "meta.title": "Georgios Sidiropoulos | Portfolio Ρομποτικής",
+      "meta.title": "Georgios Sidiropoulos | Portfolio",
       "meta.description": "Portfolio του Γεώργιου Σιδηρόπουλου — Έργα Ρομποτικής & ML, εμπειρία, δεξιότητες και επικοινωνία.",
+
+      // Generic / Buttons
       "skip.toMain": "Μετάβαση στο κυρίως περιεχόμενο",
       "buttons.cv": "⬇️ Λήψη Βιογραφικού",
       "buttons.top": "↑ Κορυφή",
       "buttons.topTitle": "Μετάβαση στην κορυφή",
       "buttons.topAria": "Μετακίνηση στην κορυφή",
+
+      // ARIA / labels
       "theme.toggle": "Εναλλαγή θέματος",
       "aria.sidebar": "Πλαϊνό μενού",
       "aria.navPrimary": "Κύριο μενού",
@@ -114,6 +145,8 @@
       "aria.email": "Αποστολή email στον Γεώργιο",
       "aria.welcome": "Καλώς ορίσατε",
       "alt.profilePic": "Πορτρέτο του Γεώργιου Σιδηρόπουλου",
+
+      // Nav
       "nav.about": "Σχετικά",
       "nav.experience": "Εμπειρία",
       "nav.education": "Σπουδές",
@@ -121,7 +154,11 @@
       "nav.skills": "Δεξιότητες",
       "nav.hobbies": "Χόμπι",
       "nav.contact": "Επικοινωνία",
+
+      // Hero
       "hero.subtitle": "<strong>🤖 Μηχανικός Λογισμικού Ρομποτικής</strong> — 💼 Πρακτική στο Parity Platform, 📍 Αθήνα, Ελλάδα.",
+
+      // Sections (chips)
       "sections.about": "Σχετικά",
       "sections.experience": "Εμπειρία",
       "sections.education": "Σπουδές",
@@ -129,11 +166,17 @@
       "sections.skills": "Δεξιότητες",
       "sections.hobbies": "Χόμπι",
       "sections.contact": "Επικοινωνία",
+
+      // Overlay
       "overlay.title": "Καλώς ήρθατε <span class='wave' aria-hidden='true'>👋</span>",
       "overlay.line1": "Είμαι ο Γεώργιος Σιδηρόπουλος",
       "overlay.line2": "Μηχανικός Πληροφορικής με πάθος για Ρομποτική και Μηχανική Μάθηση.",
+
+      // About
       "about.p1": "Είμαι απόφοιτος Μηχανικός Πληροφορικής και Επικοινωνιών του Πανεπιστημίου Ιωαννίνων και εργάζομαι ως Intern Μηχανικός Λογισμικού Ρομποτικής στο Parity Platform. Τα ενδιαφέροντά μου περιλαμβάνουν ρομποτική, τεχνητή νοημοσύνη και μηχανική μάθηση.",
       "about.p2": "Η διπλωματική μου εργασία, <strong>«Πλοήγηση Κινητού Βραχίονα σε Δυναμικό Περιβάλλον»</strong>, εστιάζει στον σχεδιασμό κίνησης και στην αποφυγή δυναμικών εμποδίων.",
+
+      // Experience
       "experience.subtitle": "Μια σύντομη σύνοψη από τις πιο πρόσφατες εμπειρίες μου:",
       "experience.parity.title": "Robotics Engineer Intern <span class='card-meta'>Ιουλ 2025 – Σήμερα</span>",
       "experience.parity.place": "<em>Parity Platform — Αθήνα, Ελλάδα</em>",
@@ -144,8 +187,12 @@
       "experience.uoi.place": "<em>Πανεπιστήμιο Ιωαννίνων</em>",
       "experience.uoi.li1": "Παρουσίαση και επίδειξη του έργου του Εργαστηρίου Ρομποτικής σε μαθητές Γυμνασίου/Λυκείου και επισκέπτες.",
       "experience.uoi.li2": "Εξήγηση της λειτουργίας ρομποτικών συστημάτων, επίδειξη πραγματικών εφαρμογών και έμπνευση νεότερων ακροατηρίων να ασχοληθούν με την πληροφορική και τη ρομποτική.",
+
+      // Education
       "education.subtitle": "Το ακαδημαϊκό μου υπόβαθρο και προσόντα:",
       "education.degreeHTML": "<strong><a href='https://www.cse.uoi.gr/' target='_blank' rel='noopener noreferrer'>Πανεπιστήμιο Ιωαννίνων — Τμήμα Πληροφορικής &amp; Μηχανικών Η/Υ</a></strong><br/>Ενιαίο Δίπλωμα (BSc/MEng) στην Επιστήμη &amp; Μηχανική Υπολογιστών<br/>2019 – 2025 &nbsp;|&nbsp; Βαθμός: <strong>7.8 / 10</strong><br/>Διπλωματική: «Πλοήγηση Κινητού Βραχίονα σε Δυναμικό Περιβάλλον».",
+
+      // Projects
       "projects.subtitle": "Επιλογή από πρόσφατα έργα μου:",
       "projects.p1.title": "Πλοήγηση Κινητού Βραχίονα σε Δυναμικό Περιβάλλον",
       "projects.p1.meta": "<em>Οκτώβριος 2024 – Σήμερα &nbsp;|&nbsp; Διπλωματική εργασία στη Ρομποτική</em>",
@@ -174,14 +221,21 @@
       "projects.p6.meta": "<em>Δεκέμβριος 2022 – Ιανουάριος 2023</em>",
       "projects.p6.li1": "Εφαρμογή Java GUI για διαχείριση δεδομένων πωλητών και αναφορών προμηθειών.",
       "projects.p6.li2": "Έμφαση στη δομοστοιχειωτή σχεδίαση και σε εξαγωγές πολλαπλών μορφών με καθαρή αρχιτεκτονική.",
+
+      // Skills
       "skills.subtitle": "Οι δεξιότητες, τα εργαλεία και οι τεχνολογίες στις οποίες είμαι πραγματικά καλός.",
+
+      // Hobbies
       "hobbies.subtitle": "Τι κάνω στον ελεύθερο χρόνο μου:",
       "hobbies.hiking.title": "Πεζοπορία",
-      "hobbies.hiking.sub": "Πάτησε ένα marker για να φιλτράρεις φωτογραφίες από εκείνο το μέρος.",
+      "hobbies.hiking.catch": "Μου αρέσει να βγαίνω στη φύση και να κυνηγάω κορυφές — πάμε για μια πεζοπορία κάποια φορά;",
+      "hobbies.hiking.sub": "Πάτησε έναν δείκτη στον χάρτη για να δεις φωτογραφίες από εκείνο το μέρος. Σύρε το καρουζέλ ή πάτησε μια φωτογραφία για πλήρη οθόνη. 🥾",
       "hobbies.chess.title": "Σκάκι",
       "hobbies.chess.sub": "Το σκάκι είναι το αγαπημένο μου πρόβλημα αναζήτησης — <strong>minimax σε πραγματικό χρόνο</strong>. Παίζω κυρίως rapid 10' και λύνω γρίφους για να βελτιώνω την αναγνώριση μοτίβων. Θες μια φιλική παρτίδα rapid ή πιο γρήγορο bullet; Πάτα το λογότυπο και στείλε πρόκληση. ♟️🙂",
       "hobbies.basket.title": "Μπάσκετ",
       "hobbies.basket.sub": "Προσπαθώ να ρίχνω μερικά σουτ κάθε εβδομάδα.",
+
+      // Contact / Footer
       "contact.subtitle": "Επικοινωνήστε μαζί μου για συνεργασία ή απορίες:",
       "contact.emailLabel": "Email:",
       "contact.githubLabel": "GitHub:",
@@ -230,10 +284,16 @@
     currentLang = lang;
     localStorage.setItem("lang", lang);
     document.documentElement.setAttribute("lang", lang);
+    // expose current language for other scripts
+    window.currentLang = currentLang;
 
+    // pressed state on buttons
     langBtns.forEach(b => b.setAttribute("aria-pressed", String(b.dataset.lang === lang)));
+
+    // swap CV link
     if (cvLink) cvLink.href = CV_FILES[lang] || CV_FILES.en;
 
+    // apply text/HTML translations
     document.querySelectorAll("[data-i18n]").forEach(node => {
       const key = node.getAttribute("data-i18n");
       const value = I18N[lang][key];
@@ -241,13 +301,18 @@
       if (value.includes("<")) node.innerHTML = value;
       else node.textContent = value;
     });
+
+    // apply attribute translations
     applyAttributes(lang);
 
-    // Let others hook into language change:
-    document.dispatchEvent(new CustomEvent('lang:changed', { detail: { lang } }));
+    // Notify listeners (compat: fire both events)
+    // Old listeners used window "i18n:changed"; newer code might use "lang:changed".
+    const detail = { lang };
+    window.dispatchEvent(new CustomEvent("i18n:changed", { detail }));
+    document.dispatchEvent(new CustomEvent("lang:changed", { detail }));
   }
 
-  // expose setLang globally for other modules (hobbies)
+  // expose for other modules
   window.setLang = setLang;
   window.__i18n = { I18N, currentLang: () => currentLang };
 })();
