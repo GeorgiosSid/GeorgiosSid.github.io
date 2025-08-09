@@ -115,3 +115,70 @@
   .theme-switcher .toggle-thumb{ width: 24px; height: 24px; top: 4px; }
   .dark-theme .theme-switcher .toggle-thumb{ transform: translateX(40px); } /* 72 - 4 - 24 - 4 */
 }
+
+/* --- Photo thumbnail markers on map --- */
+.photo-marker {}
+.photo-marker .marker-inner{
+  display:block; width:42px; height:42px; border-radius:999px;
+  background-size:cover; background-position:center;
+  box-shadow:0 6px 14px rgba(0,0,0,.25), 0 0 0 2px #fff inset;
+  transition:transform .12s ease, box-shadow .2s ease;
+}
+.dark-theme .photo-marker .marker-inner{
+  box-shadow:0 6px 16px rgba(0,0,0,.45), 0 0 0 2px rgba(255,255,255,.15) inset;
+}
+.leaflet-marker-icon.photo-marker:hover .marker-inner{ transform:translateY(-1px) scale(1.03); }
+
+/* --- Leaflet popup restyle with mini gallery --- */
+.leaflet-popup-content-wrapper{
+  border-radius:12px; background:var(--panel); border:1px solid var(--border);
+  box-shadow:var(--shadow);
+}
+.leaflet-popup-tip{ background:var(--panel); border:1px solid var(--border); }
+
+.popup-wrap{ min-width:220px; }
+.popup-title{ font-weight:700; margin:0 0 .35rem; color:var(--text); }
+.popup-gallery{
+  display:grid; grid-template-columns:repeat(3,64px); gap:.35rem; margin-bottom:.5rem;
+}
+.popup-gallery img{
+  width:64px; height:64px; object-fit:cover; border-radius:8px; border:1px solid var(--border);
+}
+.popup-show-all{
+  display:inline-block; font:inherit; padding:.35rem .6rem; border-radius:8px;
+  border:1px solid var(--border); background:var(--band-a); color:var(--text); cursor:pointer;
+}
+.popup-show-all:hover{ filter:brightness(1.03); }
+
+/* Videos styled like images */
+.gallery video,
+.popup-gallery video {
+  width: 100%;
+  display: block;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  object-fit: cover;
+}
+.popup-gallery video.thumb {
+  width: 64px;
+  height: 64px;
+  border-radius: 8px;
+}
+
+/* Fallback marker when first media is video */
+.photo-marker .marker-inner.is-video{
+  background: radial-gradient(circle at 35% 35%, #fdfdfd 0%, #ddd 60%, #bbb 100%);
+  box-shadow: 0 6px 14px rgba(0,0,0,.25), 0 0 0 2px #fff inset;
+  position: relative;
+}
+.photo-marker .marker-inner.is-video::after{
+  content: "▶";
+  position: absolute; inset: 0;
+  display: grid; place-items: center;
+  font-size: 16px; color: #222;
+}
+.dark-theme .photo-marker .marker-inner.is-video{
+  background: radial-gradient(circle at 35% 35%, #333 0%, #20242a 60%, #14181e 100%);
+  box-shadow: 0 6px 16px rgba(0,0,0,.45), 0 0 0 2px rgba(255,255,255,.12) inset;
+}
+.dark-theme .photo-marker .marker-inner.is-video::after{ color:#f1f5f9; }

@@ -1,26 +1,102 @@
-/* Hobbies layout: stack vertically */
-.hobby-grid{ display: flex; flex-direction: column; gap: 1.1rem; }
-.hobby-grid .card{ width: 100%; max-width: 880px; margin: 0 auto; }
+/* Hobbies layout: stack cards */
+.hobby-grid { display: flex; flex-direction: column; gap: 1.1rem; }
+.hobby-grid > .card { width: 100%; max-width: 1060px; margin: 0 auto; }
 
-/* Hiking map + gallery */
+/* Map container */
 .map{
-  height:260px; border-radius:12px; overflow:hidden; margin:.5rem 0 1rem; border:1px solid var(--border);
+  height:280px; border-radius:14px; overflow:hidden;
+  margin:.75rem 0 0; border:1px solid var(--border); box-shadow:var(--shadow);
 }
-.gallery{ display:grid; grid-template-columns:repeat(auto-fit,minmax(110px,1fr)); gap:.5rem; }
-.gallery img{ width:100%; display:block; border-radius:10px; border:1px solid var(--border); }
+@media (max-width:480px){ .map{ height:220px; } }
 
-/* Chess logo link */
-.chess-logo-link {
-  display: inline-block; margin-top: .35rem; transition: transform .12s ease, opacity .2s ease;
-}
-.chess-logo-link img { display: block; height: 36px; width: auto; }
-.chess-logo-link:hover { opacity: .95; transform: translateY(-1px); }
-
-/* Basketball */
+/* Chess + Basketball (unchanged) */
+.chess-logo-link{ display:inline-block; margin-top:.35rem; transition:transform .12s ease,opacity .2s ease; }
+.chess-logo-link img{ display:block; height:36px; width:auto; }
+.chess-logo-link:hover{ opacity:.95; transform:translateY(-1px); }
 .basket-photo{ width:100%; border-radius:12px; border:1px solid var(--border); }
 
-/* Mobile */
-@media (max-width: 480px){
-  .map{ height:220px; }
-  .gallery{ grid-template-columns:repeat(auto-fit,minmax(90px,1fr)); }
+/* ===============================
+   Hiking: CAROUSEL TOP, MAP BELOW
+   =============================== */
+#hobby-hiking{
+  display:grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "title"
+    "subtitle"
+    "gallery"
+    "map";
+  gap: 0.8rem;
+}
+#hobby-hiking .card-title   { grid-area: title; }
+#hobby-hiking .card-subtitle{ grid-area: subtitle; margin-bottom:.25rem; }
+#hikingGallery{ grid-area: gallery; }
+#hikeMap     { grid-area: map; }
+
+/* ---- Carousel (3 per view desktop, 2 tablet, 1 mobile) ---- */
+#hikingGallery { --spv: 3; }                 /* slides per view */
+@media (max-width: 980px){ #hikingGallery { --spv: 2; } }
+@media (max-width: 640px){ #hikingGallery { --spv: 1; } }
+
+/* Header (place name) */
+#hikingGallery .gal-header{
+  display:flex; align-items:center; gap:.5rem;
+  margin:.15rem 0 .5rem;
+  color:var(--muted); font-weight:700;
+}
+#hikingGallery .gal-dot{
+  width:8px; height:8px; border-radius:50%; background:var(--brand);
+}
+
+/* Track & items */
+#hikingGallery .carousel{ position:relative; }
+#hikingGallery .car-viewport{
+  overflow:hidden; height:260px;
+  border-radius:12px; border:1px solid var(--border); background:var(--panel);
+}
+#hikingGallery .car-track{
+  display:flex; height:100%; transition:transform .25s ease;
+}
+#hikingGallery .car-item{
+  flex:0 0 calc(100% / var(--spv));  /* 3 per view by default */
+  height:100%; padding:.25rem;
+}
+#hikingGallery .car-item img,
+#hikingGallery .car-item video{
+  width:100%; height:100%; object-fit:cover; display:block;
+  border-radius:12px; border:1px solid var(--border);
+}
+
+/* Arrows */
+#hikingGallery .car-prev, #hikingGallery .car-next{
+  position:absolute; top:50%; transform:translateY(-50%);
+  border:0; width:36px; height:36px; border-radius:50%;
+  background:var(--panel); box-shadow:var(--shadow);
+  cursor:pointer; font-size:20px; line-height:36px;
+}
+#hikingGallery .car-prev{ left:8px; }
+#hikingGallery .car-next{ right:8px; }
+
+/* Map/popup polish */
+.photo-marker .marker-inner{
+  display:block; width:42px; height:42px; border-radius:50%;
+  background-size:cover; background-position:center;
+  box-shadow:0 0 0 3px #fff, 0 2px 6px rgba(0,0,0,.35);
+}
+.dark-theme .photo-marker .marker-inner{
+  box-shadow:0 0 0 3px #0b1017, 0 2px 6px rgba(0,0,0,.6);
+}
+.leaflet-popup-content .popup-wrap{ min-width:260px; }
+.leaflet-popup-content .popup-title{ font-weight:700; margin-bottom:.35rem; color:var(--text); }
+.leaflet-popup-content .popup-gallery{
+  display:flex; gap:.35rem; overflow-x:auto; padding:.25rem 0 .35rem;
+}
+.leaflet-popup-content .popup-gallery img,
+.leaflet-popup-content .popup-gallery video{
+  width:80px; height:60px; object-fit:cover; border-radius:8px; border:1px solid var(--border);
+}
+.leaflet-popup-content .popup-view{
+  display:inline-flex; align-items:center; gap:.35rem;
+  padding:.35rem .6rem; border-radius:999px; border:1px solid var(--border);
+  background:var(--panel); cursor:pointer; font-size:.9rem;
 }

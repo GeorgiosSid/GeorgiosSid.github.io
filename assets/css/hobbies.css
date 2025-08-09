@@ -1,0 +1,149 @@
+/* Keep hobby cards stacked; allow hiking card to be wider */
+.hobby-grid { display: flex; flex-direction: column; gap: 1.1rem; }
+.hobby-grid > .card { width: 100%; max-width: 1100px; margin: 0 auto; }
+
+/* ----- Lock the order with grid-areas (tabs → gallery → map) ----- */
+#hobby-hiking{
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "title"
+    "subtitle"
+    "tabs"
+    "gallery"
+    "map";
+  row-gap: 1rem;
+  min-width: 0;
+}
+
+/* Force areas (override any old grid-column rules) */
+#hobby-hiking .card-title     { grid-area: title    !important; grid-column: auto !important; }
+#hobby-hiking .card-subtitle  { grid-area: subtitle !important; grid-column: auto !important; }
+#hikePlaces                   { grid-area: tabs     !important; grid-column: auto !important; }
+#hikingGallery                { grid-area: gallery  !important; grid-column: auto !important; }
+#hikeMap                      { grid-area: map      !important; grid-column: auto !important; }
+
+/* Map height */
+#hobby-hiking .map{
+  height: 320px;
+  border-radius:14px; overflow:hidden;
+  border:1px solid var(--border); box-shadow:var(--shadow);
+}
+
+/* ---------- Places horizontal menu ---------- */
+.hike-tabs{
+  display:flex; gap:.5rem; align-items:center;
+  overflow-x:auto; padding-bottom:.25rem;
+  margin:.15rem 0 .25rem;
+  scrollbar-width: thin;
+}
+.hike-tabs .tab{
+  flex:0 0 auto;
+  border-radius:999px; border:1px solid var(--border);
+  background:var(--panel); color:var(--muted);
+  padding:.35rem .8rem; cursor:pointer;
+  transition:transform .12s ease, background .18s ease, color .18s ease, border-color .18s ease;
+}
+.hike-tabs .tab:hover{ transform: translateY(-1px); }
+.hike-tabs .tab[aria-selected="true"]{
+  background: var(--brand); border-color: transparent; color:#fff;
+  box-shadow: 0 6px 16px rgba(0,0,0,.25);
+}
+
+/* Slides per view (3) */
+#hikingGallery { --spv: 3; }
+
+/* Header above carousel */
+#hikingGallery .gal-header{
+  display:flex; align-items:center; gap:.5rem;
+  margin:.15rem 0 .5rem;
+  color:var(--muted); font-weight:700;
+}
+#hikingGallery .gal-dot{ width:8px; height:8px; border-radius:50%; background:var(--brand); }
+
+/* Carousel core */
+#hikingGallery .carousel{ position:relative; width:100%; }
+#hikingGallery .car-viewport{
+  overflow:hidden; height:320px;
+  border-radius:12px; border:1px solid var(--border); background:var(--panel);
+  min-width:0;
+}
+#hikingGallery .car-track{ display:flex; height:100%; transition:transform .28s cubic-bezier(.2,.6,.2,1); }
+#hikingGallery .car-item{ flex:0 0 calc(100% / var(--spv)); height:100%; padding:.25rem; min-width:0; }
+#hikingGallery .car-item img,
+#hikingGallery .car-item video{
+  width:100%; height:100%; object-fit:cover; display:block;
+  border-radius:12px; border:1px solid var(--border);
+  cursor: zoom-in;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+#hikingGallery .car-item:hover img,
+#hikingGallery .car-item:hover video{
+  transform: scale(1.035);
+  box-shadow: 0 10px 24px rgba(0,0,0,.25);
+}
+
+/* Arrows (both sides) */
+#hikingGallery .car-prev, #hikingGallery .car-next{
+  position:absolute; top:50%; transform:translateY(-50%);
+  z-index: 3;
+  border:0; width:40px; height:40px; border-radius:50%;
+  background: rgba(0,0,0,.45);
+  color:#fff; cursor:pointer; font-size:22px; line-height:40px;
+  display:flex; align-items:center; justify-content:center;
+  transition: transform .12s ease, background .15s ease;
+}
+#hikingGallery .car-prev{ left:10px; }
+#hikingGallery .car-next{ right:10px; }
+#hikingGallery .car-prev:hover, #hikingGallery .car-next:hover{
+  transform: translateY(-50%) scale(1.06);
+  background: rgba(0,0,0,.6);
+}
+
+/* Lightbox */
+body.lb-open { overflow: hidden; }
+#lightbox{
+  position: fixed; inset: 0; z-index: 2000;
+  display: none; align-items: center; justify-content: center;
+  background: rgba(0,0,0,.6);
+  backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+  opacity: 0;
+}
+#lightbox.active{ display:flex; opacity: 1; transition: opacity .18s ease; }
+#lightbox.closing{ opacity: 0; transition: opacity .18s ease; }
+#lightbox .lb-frame{
+  max-width: min(92vw, 1200px);
+  max-height: 86vh;
+  display:flex; align-items:center; justify-content:center;
+  position: relative;
+  animation: lbIn .22s ease both;
+}
+#lightbox.closing .lb-frame{ animation: lbOut .18s ease both; }
+#lightbox .lb-frame img, #lightbox .lb-frame video{
+  max-width: min(92vw, 1200px); max-height: 86vh;
+  border-radius: 12px; border: 1px solid var(--border); background:#000;
+}
+#lightbox .lb-prev, #lightbox .lb-next, #lightbox .lb-close{
+  position: absolute; z-index: 1;
+  border: 0; width: 44px; height: 44px; border-radius: 50%;
+  background: rgba(255,255,255,.95); color: #111; cursor: pointer;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow: 0 6px 16px rgba(0,0,0,.35);
+}
+#lightbox .lb-prev{ left: -56px; top: 50%; transform: translateY(-50%); }
+#lightbox .lb-next{ right: -56px; top: 50%; transform: translateY(-50%); }
+#lightbox .lb-close{ right: -56px; top: -56px; font-size: 20px; line-height: 1; }
+@media (max-width: 900px){
+  #lightbox .lb-prev{ left: 8px; }  #lightbox .lb-next{ right: 8px; }
+  #lightbox .lb-close{ right: 8px; top: 8px; }
+}
+@keyframes lbIn{ from{ transform: translateY(8px) scale(.985); opacity: 0; } to{ transform: translateY(0) scale(1); opacity:1; } }
+@keyframes lbOut{ from{ transform: translateY(0) scale(1); opacity: 1; } to{ transform: translateY(8px) scale(.985); opacity:0; } }
+
+/* Small screens */
+@media (max-width: 600px){
+  #hobby-hiking .map, #hikingGallery .car-viewport{ height:260px; }
+}

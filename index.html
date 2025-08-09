@@ -11,27 +11,22 @@
   <meta name="theme-color" content="#0b1017" media="(prefers-color-scheme: dark)">
   <meta name="theme-color" content="#fefefe" media="(prefers-color-scheme: light)">
 
-  <!-- OG / Twitter (fill later if you want) -->
+  <!-- OG / Twitter -->
   <meta property="og:title" content="Georgios Sidiropoulos | Robotics Portfolio">
   <meta property="og:description" content="Robotics & ML projects, experience, skills, and contact.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://georgiossid.github.io/">
   <meta name="twitter:card" content="summary_large_image">
 
-  <!-- Fonts: preconnect for performance -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 
   <!-- Leaflet CSS -->
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-    crossorigin=""
-  />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 
-  <!-- Always start dark before paint (no flash) -->
+  <!-- Always start dark before paint -->
   <script>document.documentElement.classList.add('dark-theme');</script>
 
   <!-- Your CSS (split) -->
@@ -42,6 +37,8 @@
   <link rel="stylesheet" href="assets/css/sections.css" />
   <link rel="stylesheet" href="assets/css/overlay.css" />
   <link rel="stylesheet" href="assets/css/utilities.css" />
+  <!-- Hiking overrides (loaded last so it wins) -->
+  <link rel="stylesheet" href="assets/css/hobbies.css" />
 </head>
 <body class="home-page">
 
@@ -254,7 +251,6 @@
           <div class="section-chip" data-i18n="sections.skills">Skills</div>
           <p class="section-subtitle" data-i18n="skills.subtitle">The skills, tools and technologies I am really good at.</p>
           <div class="skills-grid" aria-label="Skills list with links" data-i18n-aria-label="aria.skillsList">
-            <!-- (unchanged icons) -->
             <a href="https://www.java.com/" target="_blank" rel="noopener noreferrer"><img src="media/skills/java_logo.svg" alt="Java" loading="lazy" width="60" height="60"><span>Java</span></a>
             <a href="https://www.python.org/" target="_blank" rel="noopener noreferrer"><img src="media/skills/python-logo.svg" alt="Python" loading="lazy" width="60" height="60"><span>Python</span></a>
             <a href="https://www.cprogramming.com/" target="_blank" rel="noopener noreferrer"><img src="media/skills/C_logo.svg" alt="C" loading="lazy" width="60" height="60"><span>C</span></a>
@@ -271,20 +267,28 @@
       </section>
 
       <!-- Hobbies -->
+    <!-- Hobbies -->
       <section id="hobbies" class="band band-b">
         <div class="container">
           <div class="section-chip" data-i18n="sections.hobbies">Hobbies</div>
           <p class="section-subtitle" data-i18n="hobbies.subtitle">What I do in my free time:</p>
 
           <div class="hobby-grid hobby-stack">
-            <!-- Hiking -->
+           <!-- Hiking -->
             <article class="card" id="hobby-hiking">
               <h3 class="card-title" data-i18n="hobbies.hiking.title">Hiking</h3>
               <p class="card-subtitle" data-i18n="hobbies.hiking.sub">
                 Tap a marker to filter photos from that place.
               </p>
+
+              <!-- TABS FIRST -->
+              <div id="hikePlaces" class="hike-tabs" role="tablist" aria-label="Hiking places"></div>
+
+              <!-- CAROUSEL SECOND -->
+              <div id="hikingGallery" aria-live="polite"></div>
+
+              <!-- MAP LAST -->
               <div id="hikeMap" class="map" aria-label="Hiking map"></div>
-              <div id="hikingGallery" class="gallery" aria-live="polite"></div>
             </article>
 
             <!-- Chess -->
@@ -293,34 +297,16 @@
               <p class="card-subtitle" data-i18n="hobbies.chess.sub">
                 Chess is my favorite search problem — <strong>minimax in real time</strong>. I mostly play 10-minute rapid and solve puzzles to sharpen pattern recognition. If you’re up for a friendly rapid or a faster bullet game, click the logo and send a challenge. ♟️🙂
               </p>
-              <a
-                class="chess-logo-link"
-                href="https://www.chess.com/member/georgesidir"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="View my Chess.com profile"
-              >
-                <img
-                  src="media/hobbies/chesscom_logo.svg"
-                  alt="Chess.com"
-                  width="140"
-                  height="36"
-                />
+              <a class="chess-logo-link" href="https://www.chess.com/member/georgesidir" target="_blank" rel="noopener noreferrer" aria-label="View my Chess.com profile">
+                <img src="media/hobbies/chesscom_logo.svg" alt="Chess.com" width="140" height="36" />
               </a>
             </article>
 
             <!-- Basketball -->
             <article class="card" id="hobby-basketball">
               <h3 class="card-title" data-i18n="hobbies.basket.title">Basketball</h3>
-              <p class="card-subtitle" data-i18n="hobbies.basket.sub">
-                I try to shoot some hoops every week.
-              </p>
-              <img
-                class="basket-photo"
-                src="media/hobbies/basketball.jpg"
-                loading="lazy"
-                alt="Basketball"
-              />
+              <p class="card-subtitle" data-i18n="hobbies.basket.sub">I try to shoot some hoops every week.</p>
+              <img class="basket-photo" src="media/hobbies/basketball.jpg" loading="lazy" alt="Basketball" />
             </article>
           </div>
         </div>
@@ -348,11 +334,7 @@
   <button id="scrollToTopBtn" title="Go to top" aria-label="Scroll to top" data-i18n-title="buttons.topTitle" data-i18n-aria-label="buttons.topAria" data-i18n="buttons.top">↑ Top</button>
 
   <!-- Vendor: Leaflet -->
-  <script
-    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-    crossorigin=""
-  ></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
   <!-- Your JS (split) -->
   <script defer src="assets/js/theme.js"></script>
