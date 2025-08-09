@@ -1,0 +1,117 @@
+/* Section chip */
+.section-chip{
+  display: inline-block;
+  margin: 0 auto 1rem;
+  padding: .35rem .75rem;
+  font-size: .9rem;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(255,255,255,.06);
+  backdrop-filter: blur(2px);
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+}
+.container, .section-chip { text-align: center; }
+
+.section-subtitle {
+  margin: 0 0 1rem; font-size: 1rem; color: var(--muted); text-align: center;
+}
+
+/* Cards */
+.card{
+  background: var(--panel); border: 1px solid var(--border);
+  border-radius: 16px; padding: 1.1rem 1.1rem;
+  box-shadow: var(--shadow); margin: 0 auto 1rem; text-align: left;
+}
+.card-title{ margin: .2rem 0 .3rem; font-size: 1.15rem; color: var(--text); }
+.card-meta{ font-weight: normal; font-size: .95rem; color: var(--muted); margin-left: .35rem; }
+.card-subtitle{ margin: 0 0 .25rem; color: var(--muted); }
+.card-list{ margin: .25rem 0 0 1.25rem; color: var(--muted); }
+.card-intro{ color: var(--muted); margin-top: 0; }
+.center{ text-align:center }
+
+/* Social icons */
+.social-icons { margin-top: 1rem; display:flex; gap:1.1rem; align-items:center; justify-content:center; }
+.social-icons img { width:42px; height:42px; transition: transform .2s ease; }
+.social-icons a:hover img{ transform: scale(1.12); }
+
+/* Skills grid */
+.skills-grid{
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 1.2rem 1rem; margin-top: 1rem; align-items: center; justify-items: center;
+}
+.skills-grid a{
+  display:flex; flex-direction:column; align-items:center; gap:.35rem;
+  color: var(--muted); text-decoration:none;
+}
+.skills-grid img{
+  width: 60px; height: 60px; object-fit: contain;
+  transition: transform .2s ease, filter .2s ease; filter: grayscale(30%);
+}
+.skills-grid a:hover img{ transform: scale(1.12); filter: grayscale(0%); }
+
+/* Footer */
+.footer{ text-align: center; color: var(--muted); padding: 2rem 0; }
+
+/* Scroll to Top */
+#scrollToTopBtn{
+  position: fixed; bottom: 30px; right: 30px; z-index: 100;
+  display: none; background: var(--brand); color:#fff; border: none;
+  padding: .75rem 1rem; border-radius: 8px; cursor: pointer; font-size: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,.25); transition: opacity .3s ease, transform .1s ease;
+}
+#scrollToTopBtn:hover{ opacity: .95; transform: translateY(-2px); }
+
+/* Language chips + CV */
+.lang-controls {
+  margin-top: .6rem; display: flex; gap: .5rem; justify-content: center;
+}
+.lang-btn {
+  background: transparent; color: #fff; border: 1px solid rgba(255,255,255,.6);
+  padding: .35rem .6rem; border-radius: 999px; font-size: .9rem; cursor: pointer;
+  opacity: .85; transition: opacity .2s ease, background .2s ease, color .2s ease;
+}
+.lang-btn[aria-pressed="true"] { background: #fff; color: var(--brand); opacity: 1; }
+
+.cv-btn {
+  display: inline-flex; justify-content: center; align-items: center; text-align: center;
+  width: 100%; max-width: 240px; margin: .6rem auto 0; padding: .55rem 1rem;
+  border-radius: 10px; background: var(--panel); border: 1px solid var(--border);
+  box-shadow: var(--shadow); color: var(--brand); font-weight: 700; text-decoration: none;
+}
+.cv-btn:hover { opacity: .95; }
+
+/* Theme toggle slider */
+.theme-switcher { margin-top: .8rem; width: 100%; display: flex; justify-content: center; }
+.toggle { border: 0; background: transparent; padding: 0; cursor: pointer; }
+.toggle-track{
+  position: relative; width: 88px; height: 36px; border-radius: 999px;
+  background: #eef2f7; box-shadow: inset 0 0 0 2px rgba(0,0,0,.65); display: inline-block;
+}
+.dark-theme .toggle-track{ background: #1e2430; box-shadow: inset 0 0 0 2px #000; }
+.toggle-icon{
+  position: absolute; top: 50%; transform: translateY(-50%); font-size: 16px;
+  pointer-events: none; text-shadow: 0 1px 2px rgba(0,0,0,.45); opacity: .7; transition: opacity .2s ease;
+}
+.toggle-icon.sun{ left: 10px; }
+.toggle-icon.moon{ right: 10px; }
+.dark-theme .toggle-icon.sun { opacity: .35; }
+.dark-theme .toggle-icon.moon { opacity: .9; }
+:not(.dark-theme) .toggle-icon.sun{ opacity: 1; }
+:not(.dark-theme) .toggle-icon.moon{ opacity: .9; }
+.toggle-thumb {
+  position: absolute; top: 4px; left: 4px; width: 28px; height: 28px; border-radius: 50%;
+  background: #fff; box-shadow: 0 2px 6px rgba(0,0,0,.25); transition: transform .22s ease;
+}
+.dark-theme .toggle-thumb { transform: translateX(52px); }
+
+/* Mobile tweaks for toggle & CV */
+@media (max-width: 868px) {
+  .cv-btn{
+    width: auto; max-width: none; align-self: center;
+    margin-top: .6rem; padding: .45rem .9rem; font-size: .95rem; border-radius: 8px;
+  }
+  .theme-switcher .toggle-track{ width: 72px; height: 32px; }
+  .theme-switcher .toggle-thumb{ width: 24px; height: 24px; top: 4px; }
+  .dark-theme .theme-switcher .toggle-thumb{ transform: translateX(40px); } /* 72 - 4 - 24 - 4 */
+}

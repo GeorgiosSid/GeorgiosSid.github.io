@@ -1,0 +1,26 @@
+/* Hobbies layout: stack vertically */
+.hobby-grid{ display: flex; flex-direction: column; gap: 1.1rem; }
+.hobby-grid .card{ width: 100%; max-width: 880px; margin: 0 auto; }
+
+/* Hiking map + gallery */
+.map{
+  height:260px; border-radius:12px; overflow:hidden; margin:.5rem 0 1rem; border:1px solid var(--border);
+}
+.gallery{ display:grid; grid-template-columns:repeat(auto-fit,minmax(110px,1fr)); gap:.5rem; }
+.gallery img{ width:100%; display:block; border-radius:10px; border:1px solid var(--border); }
+
+/* Chess logo link */
+.chess-logo-link {
+  display: inline-block; margin-top: .35rem; transition: transform .12s ease, opacity .2s ease;
+}
+.chess-logo-link img { display: block; height: 36px; width: auto; }
+.chess-logo-link:hover { opacity: .95; transform: translateY(-1px); }
+
+/* Basketball */
+.basket-photo{ width:100%; border-radius:12px; border:1px solid var(--border); }
+
+/* Mobile */
+@media (max-width: 480px){
+  .map{ height:220px; }
+  .gallery{ grid-template-columns:repeat(auto-fit,minmax(90px,1fr)); }
+}

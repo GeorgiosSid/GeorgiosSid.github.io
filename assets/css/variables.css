@@ -1,0 +1,27 @@
+:root {
+  --bg: #fefefe;
+  --text: #2e2e2e;
+  --brand: #c86542;
+  --muted: #6c7a89;
+  --border: #e4e7ee;
+  --panel: #ffffff;
+
+  --band-a: #f7f9fc;
+  --band-b: #eef2f7;
+
+  --shadow: 0 10px 24px rgba(0,0,0,.08);
+}
+
+.dark-theme {
+  --bg: #0b1017;
+  --text: #e5e7eb;
+  --brand: #a95b3d;
+  --muted: #bfc6d5;
+  --border: #263241;
+  --panel: #121923;
+
+  --band-a: #0f1620;
+  --band-b: #121a25;
+
+  --shadow: 0 16px 32px rgba(0,0,0,.35);
+}

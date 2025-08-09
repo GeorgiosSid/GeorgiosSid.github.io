@@ -7,22 +7,41 @@
   <meta name="description" data-i18n-content="meta.description" content="Portfolio of Georgios Sidiropoulos — Robotics & ML projects, experience, skills, and contact." />
   <link rel="canonical" href="https://georgiossid.github.io/" />
 
-  <script>
-    (() => {
-      const root = document.documentElement;
-      const t = localStorage.getItem('theme');
-      if (!t) {
-        // default to DARK the first time
-        root.classList.add('dark-theme');
-        localStorage.setItem('theme', 'dark');
-      } else {
-        root.classList.toggle('dark-theme', t === 'dark');
-      }
-    })();
-  </script>
+  <!-- PWA / Theme color -->
+  <meta name="theme-color" content="#0b1017" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#fefefe" media="(prefers-color-scheme: light)">
 
-  <link rel="stylesheet" href="style.css" />
+  <!-- OG / Twitter (fill later if you want) -->
+  <meta property="og:title" content="Georgios Sidiropoulos | Robotics Portfolio">
+  <meta property="og:description" content="Robotics & ML projects, experience, skills, and contact.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://georgiossid.github.io/">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Fonts: preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <!-- Leaflet CSS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+  />
+
+  <!-- Always start dark before paint (no flash) -->
+  <script>document.documentElement.classList.add('dark-theme');</script>
+
+  <!-- Your CSS (split) -->
+  <link rel="stylesheet" href="assets/css/variables.css" />
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/layout.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/sections.css" />
+  <link rel="stylesheet" href="assets/css/overlay.css" />
+  <link rel="stylesheet" href="assets/css/utilities.css" />
 </head>
 <body class="home-page">
 
@@ -35,12 +54,11 @@
       <h1 class="welcome-title" data-i18n="overlay.title">Welcome <span class="wave" aria-hidden="true">👋</span></h1>
       <p class="welcome-text" data-i18n="overlay.line1">I'm Georgios Sidiropoulos</p>
       <p class="welcome-text" data-i18n="overlay.line2">A Computer Science Engineer with a passion for Robotics and Machine Learning.</p>
-  
     </div>
   </div>
 
   <div id="main-content" class="layout" aria-live="polite">
-      <!-- Sidebar -->
+    <!-- Sidebar -->
     <aside class="sidebar" aria-label="Sidebar" data-i18n-aria-label="aria.sidebar">
       <div class="profile-pic">
         <img src="media/profile.png" alt="Portrait of Georgios Sidiropoulos" loading="lazy" width="140" height="140" data-i18n-alt="alt.profilePic" />
@@ -65,26 +83,23 @@
           ⬇️ Download CV
         </a>
 
-      <!-- Theme Toggle (slider) -->
-      <div class="theme-switcher">
-        <button id="theme-toggle" class="toggle" type="button"
-                aria-label="Toggle theme" aria-pressed="false">
-          <span class="toggle-track">
-            <span class="toggle-icon sun" aria-hidden="true">☀️</span>
-            <span class="toggle-icon moon" aria-hidden="true">🌙</span>
-            <span class="toggle-thumb" aria-hidden="true"></span>
-          </span>
-        </button>
-      </div>
+        <!-- Theme Toggle (slider) -->
+        <div class="theme-switcher">
+          <button id="theme-toggle" class="toggle" type="button"
+                  data-i18n-aria-label="theme.toggle" aria-label="Toggle theme" aria-pressed="false">
+            <span class="toggle-track">
+              <span class="toggle-icon sun" aria-hidden="true">☀️</span>
+              <span class="toggle-icon moon" aria-hidden="true">🌙</span>
+              <span class="toggle-thumb" aria-hidden="true"></span>
+            </span>
+          </button>
+        </div>
 
-
-        <!-- Language switch + CV button -->
+        <!-- Language -->
         <div class="lang-controls" role="group" aria-label="Language" data-i18n-aria-label="aria.language">
           <button class="lang-btn" data-lang="en" aria-pressed="true">EN</button>
           <button class="lang-btn" data-lang="el" aria-pressed="false">GR</button>
         </div>
-
-
       </nav>
     </aside>
 
@@ -93,19 +108,19 @@
       <h1><span class="first-name">GEORGIOS</span> <span class="last-name">SIDIROPOULOS</span></h1>
       <p class="subtitle" data-i18n="hero.subtitle"><strong>🤖 Robotics Software Engineer</strong> — 💼 Intern at Parity Platform, 📍 Athens, Greece.</p>
 
-      <!-- Section: About (Band A) -->
+      <!-- About -->
       <section id="about" class="band band-a">
         <div class="container">
           <div class="section-chip" aria-hidden="true" data-i18n="sections.about">About</div>
-            <p data-i18n="about.p1">
-              I am a Computer Science and Engineering graduate from the University of Ioannina, currently working as a
-              Robotics Software Engineering Intern at Parity Platform. My main interests include robotics, artificial
-              intelligence, and machine learning.
-            </p>
-            <p data-i18n="about.p2">
-              My diploma thesis, <strong>“Navigation of a Mobile Manipulator in a Dynamic Environment”</strong>, focused on motion
-              planning and avoidance of dynamic obstacles.
-            </p>
+          <p data-i18n="about.p1">
+            I am a Computer Science and Engineering graduate from the University of Ioannina, currently working as a
+            Robotics Software Engineering Intern at Parity Platform. My main interests include robotics, artificial
+            intelligence, and machine learning.
+          </p>
+          <p data-i18n="about.p2">
+            My diploma thesis, <strong>“Navigation of a Mobile Manipulator in a Dynamic Environment”</strong>, focused on motion
+            planning and avoidance of dynamic obstacles.
+          </p>
 
           <div class="social-icons" aria-label="Social links" data-i18n-aria-label="aria.social">
             <a href="https://github.com/GeorgiosSid" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" data-i18n-aria-label="aria.github">
@@ -121,7 +136,7 @@
         </div>
       </section>
 
-      <!-- Section: Experience (Band B) -->
+      <!-- Experience -->
       <section id="experience" class="band band-b">
         <div class="container">
           <div class="section-chip" data-i18n="sections.experience">Experience</div>
@@ -148,7 +163,7 @@
         </div>
       </section>
 
-      <!-- Section: Education (Band A) -->
+      <!-- Education -->
       <section id="education" class="band band-a">
         <div class="container">
           <div class="section-chip" data-i18n="sections.education">Education</div>
@@ -168,7 +183,7 @@
         </div>
       </section>
 
-      <!-- Section: Projects (Band B) -->
+      <!-- Projects -->
       <section id="projects" class="band band-b">
         <div class="container">
           <div class="section-chip" data-i18n="sections.projects">Projects</div>
@@ -233,12 +248,13 @@
         </div>
       </section>
 
-      <!-- Section: Skills (Band A) -->
+      <!-- Skills -->
       <section id="skills" class="band band-a">
         <div class="container">
           <div class="section-chip" data-i18n="sections.skills">Skills</div>
           <p class="section-subtitle" data-i18n="skills.subtitle">The skills, tools and technologies I am really good at.</p>
           <div class="skills-grid" aria-label="Skills list with links" data-i18n-aria-label="aria.skillsList">
+            <!-- (unchanged icons) -->
             <a href="https://www.java.com/" target="_blank" rel="noopener noreferrer"><img src="media/skills/java_logo.svg" alt="Java" loading="lazy" width="60" height="60"><span>Java</span></a>
             <a href="https://www.python.org/" target="_blank" rel="noopener noreferrer"><img src="media/skills/python-logo.svg" alt="Python" loading="lazy" width="60" height="60"><span>Python</span></a>
             <a href="https://www.cprogramming.com/" target="_blank" rel="noopener noreferrer"><img src="media/skills/C_logo.svg" alt="C" loading="lazy" width="60" height="60"><span>C</span></a>
@@ -254,19 +270,76 @@
         </div>
       </section>
 
-      <!-- Section: Hobbies (Band B) -->
+      <!-- Hobbies -->
       <section id="hobbies" class="band band-b">
         <div class="container">
           <div class="section-chip" data-i18n="sections.hobbies">Hobbies</div>
           <p class="section-subtitle" data-i18n="hobbies.subtitle">What I do in my free time:</p>
+
+          <div class="hobby-grid hobby-stack">
+            <!-- Hiking -->
+            <article class="card" id="hobby-hiking">
+              <h3 class="card-title" data-i18n="hobbies.hiking.title">Hiking</h3>
+              <p class="card-subtitle" data-i18n="hobbies.hiking.sub">
+                Tap a marker to filter photos from that place.
+              </p>
+              <div id="hikeMap" class="map" aria-label="Hiking map"></div>
+              <div id="hikingGallery" class="gallery" aria-live="polite"></div>
+            </article>
+
+            <!-- Chess -->
+            <article class="card" id="hobby-chess">
+              <h3 class="card-title" data-i18n="hobbies.chess.title">Chess</h3>
+              <p class="card-subtitle" data-i18n="hobbies.chess.sub">
+                Chess is my favorite search problem — <strong>minimax in real time</strong>. I mostly play 10-minute rapid and solve puzzles to sharpen pattern recognition. If you’re up for a friendly rapid or a faster bullet game, click the logo and send a challenge. ♟️🙂
+              </p>
+              <a
+                class="chess-logo-link"
+                href="https://www.chess.com/member/georgesidir"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="View my Chess.com profile"
+              >
+                <img
+                  src="media/hobbies/chesscom_logo.svg"
+                  alt="Chess.com"
+                  width="140"
+                  height="36"
+                />
+              </a>
+            </article>
+
+            <!-- Basketball -->
+            <article class="card" id="hobby-basketball">
+              <h3 class="card-title" data-i18n="hobbies.basket.title">Basketball</h3>
+              <p class="card-subtitle" data-i18n="hobbies.basket.sub">
+                I try to shoot some hoops every week.
+              </p>
+              <img
+                class="basket-photo"
+                src="media/hobbies/basketball.jpg"
+                loading="lazy"
+                alt="Basketball"
+              />
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="band band-a">
+        <div class="container">
+          <div class="section-chip" data-i18n="sections.contact">Contact</div>
+          <p class="section-subtitle" data-i18n="contact.subtitle">Feel free to reach out for collaboration or inquiries:</p>
           <div class="card">
-            <p data-i18n="hobbies.p1">In my free time, I enjoy tinkering with robots, reading about AI, hiking, and building personal coding projects related to automation and control systems.</p>
+            <p><span data-i18n="contact.emailLabel">Email:</span> <a href="mailto:sidiropoulosgeorgios000@gmail.com">sidiropoulosgeorgios000@gmail.com</a></p>
+            <p><span data-i18n="contact.githubLabel">GitHub:</span> <a href="https://github.com/GeorgiosSid" target="_blank" rel="noopener noreferrer">GeorgiosSid</a></p>
+            <p><span data-i18n="contact.linkedinLabel">LinkedIn:</span> <a href="https://www.linkedin.com/in/sidiropoulosgeorgios/" target="_blank" rel="noopener noreferrer">sidiropoulosgeorgios</a></p>
           </div>
         </div>
       </section>
 
       <footer class="footer">
-        <p data-i18n="footer.text">&copy; 2025 Georgios Sidiropoulos. All rights reserved.</p>
+        <p data-i18n="footer.text">© 2025 Georgios Sidiropoulos. All rights reserved.</p>
       </footer>
     </main>
   </div>
@@ -274,375 +347,19 @@
   <!-- Scroll to Top Button -->
   <button id="scrollToTopBtn" title="Go to top" aria-label="Scroll to top" data-i18n-title="buttons.topTitle" data-i18n-aria-label="buttons.topAria" data-i18n="buttons.top">↑ Top</button>
 
-  <!-- JS -->
-  <script>
-    // Welcome overlay + reduced motion + ESC
-    const overlay = document.getElementById('welcome-overlay');
-    const circle = document.querySelector('.welcome-circle');
-    let hasExited = false;
-    const autoDismissTimer = setTimeout(() => {
-      if (hasExited) return;
-      hasExited = true;
-      bounceThenExit();
-    }, 10000);
+  <!-- Vendor: Leaflet -->
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""
+  ></script>
 
-    window.addEventListener('click', () => {
-      if (hasExited) return;
-      hasExited = true;
-      clearTimeout(autoDismissTimer);
-      bounceThenExit();
-    });
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') dismissOverlay(); });
-
-    function bounceThenExit() {
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return dismissOverlay();
-      circle.classList.add('bounce-exit');
-      setTimeout(() => dismissOverlay(), 500);
-    }
-    function dismissOverlay() {
-      overlay?.remove();
-      document.body.classList.add('active');
-    }
-
-    // Scroll to Top
-    const scrollToTopBtn = document.getElementById("scrollToTopBtn");
-    window.addEventListener("scroll", () => {
-      scrollToTopBtn.style.display = window.scrollY > 200 ? "block" : "none";
-    });
-    scrollToTopBtn.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-
-    // Active menu highlighting with IntersectionObserver
-    const navLinks = Array.from(document.querySelectorAll(".sidebar-nav a"));
-    const sections = navLinks
-      .map(a => document.querySelector(a.getAttribute('href')))
-      .filter(Boolean);
-
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        const id = '#' + entry.target.id;
-        navLinks.forEach(l => {
-          const active = (l.getAttribute('href') === id);
-          l.classList.toggle('active', active);
-          if (active) l.setAttribute('aria-current', 'page'); else l.removeAttribute('aria-current');
-        });
-      });
-    }, { rootMargin: '0px 0px -60% 0px', threshold: 0.1 });
-
-    sections.forEach(sec => io.observe(sec));
-
-    // Theme toggle with emoji switch 🌙 / ☀️
-    // Theme toggle (slider): sync aria-pressed and localStorage
-    const toggleBtn = document.getElementById('theme-toggle');
-    const isDarkInit = document.documentElement.classList.contains('dark-theme');
-    toggleBtn.setAttribute('aria-pressed', String(isDarkInit));
-
-    toggleBtn.addEventListener('click', () => {
-      const dark = document.documentElement.classList.toggle('dark-theme');
-      toggleBtn.setAttribute('aria-pressed', String(dark));
-      localStorage.setItem('theme', dark ? 'dark' : 'light');
-    });
-  </script>
-
-  <script>
-  // ------- i18n dictionary (expanded) -------
-
-  const I18N = {
-    en: {
-      // Meta / Head
-      "meta.title": "Georgios Sidiropoulos | Robotics Portfolio",
-      "meta.description": "Portfolio of Georgios Sidiropoulos — Robotics & ML projects, experience, skills, and contact.",
-
-      // Generic / Buttons
-      "skip.toMain": "Skip to main content",
-      "buttons.cv": "⬇️ Download CV",
-      "buttons.top": "↑ Top",
-      "buttons.topTitle": "Go to top",
-      "buttons.topAria": "Scroll to top",
-
-      // ARIA / labels
-      "theme.toggle": "Toggle theme",
-      "aria.sidebar": "Sidebar",
-      "aria.navPrimary": "Primary navigation",
-      "aria.language": "Language",
-      "aria.social": "Social links",
-      "aria.skillsList": "Skills list with links",
-      "aria.github": "GitHub Profile",
-      "aria.linkedin": "LinkedIn Profile",
-      "aria.email": "Email Georgios",
-      "aria.welcome": "Welcome",
-      "alt.profilePic": "Portrait of Georgios Sidiropoulos",
-
-      // Nav
-      "nav.about": "About",
-      "nav.experience": "Experience",
-      "nav.education": "Education",
-      "nav.projects": "Projects",
-      "nav.skills": "Skills",
-      "nav.hobbies": "Hobbies",
-      "nav.contact": "Contact",
-
-      // Hero
-      "hero.subtitle": "<strong>🤖 Robotics Software Engineer</strong> — 💼 Intern at Parity Platform, 📍 Athens, Greece.",
-
-      // Sections (chips)
-      "sections.about": "About",
-      "sections.experience": "Experience",
-      "sections.education": "Education",
-      "sections.projects": "Projects",
-      "sections.skills": "Skills",
-      "sections.hobbies": "Hobbies",
-      "sections.contact": "Contact",
-
-      // Overlay
-      "overlay.title": "Welcome <span class='wave' aria-hidden='true'>👋</span>",
-      "overlay.line1": "I'm Georgios Sidiropoulos",
-      "overlay.line2": "A Computer Science Engineer with a passion for Robotics and Machine Learning.",
-
-      // About
-      "about.p1": "I am a Computer Science and Engineering graduate from the University of Ioannina, currently working as a Robotics Software Engineering Intern at Parity Platform. My main interests include robotics, artificial intelligence, and machine learning.",
-      "about.p2": "My diploma thesis, <strong>“Navigation of a Mobile Manipulator in a Dynamic Environment”</strong>, focused on motion planning and avoidance of dynamic obstacles.",
-
-      // Experience
-      "experience.subtitle": "Here is a quick summary of my most recent experiences:",
-      "experience.parity.title": "Robotics Engineer Intern <span class='card-meta'>Jul 2025 – Present</span>",
-      "experience.parity.place": "<em>Parity Platform — Athens, Greece</em>",
-      "experience.parity.li1": "Contributing to the software implementation and system integration of a 6-DOF robotic arm intended for deployment in a production line for composite materials.",
-      "experience.parity.li2": "Supporting system architecture, creating automation routines, and ensuring the robot integrates effectively with connected sensors.",
-      "experience.parity.li3": "Collaborating closely with the Robotics Department team to build a reliable robotic system.",
-      "experience.uoi.title": "Robotics Lab Presenter & Demonstrator <span class='card-meta'>Oct 2024 – Jun 2025</span>",
-      "experience.uoi.place": "<em>University of Ioannina</em>",
-      "experience.uoi.li1": "Presented and showcased Robotics Laboratory work to middle/high-school students and guests.",
-      "experience.uoi.li2": "Explained how robotic systems function, demonstrated real-world use cases, and inspired younger audiences to pursue computer science and robotics.",
-
-      // Education
-      "education.subtitle": "My academic background and qualifications:",
-      "education.degreeHTML": "<strong><a href='https://www.cse.uoi.gr/' target='_blank' rel='noopener noreferrer'>University of Ioannina — Department of Computer Science &amp; Engineering</a></strong><br/>Integrated Master (BSc/MEng) in Computer Science &amp; Engineering<br/>2019 – 2025 &nbsp;|&nbsp; Grade: <strong>7.8 / 10</strong><br/>Thesis: “Navigation of a Mobile Manipulator in a Dynamic Environment”.",
-
-      // Projects
-      "projects.subtitle": "A selection of my recent projects:",
-      "projects.p1.title": "Navigation of a Mobile Manipulator in a Dynamic Environment",
-      "projects.p1.meta": "<em>October 2024 – Present &nbsp;|&nbsp; Diploma Thesis in Robotics</em>",
-      "projects.p1.li1": "Modeled and simulated Kinova Gen3 Lite (6-DOF) kinematics.",
-      "projects.p1.li2": "Implemented Traditional Artificial Potential Field (T-APF) with control-point force mapping.",
-      "projects.p1.li3": "Integrated dynamic repulsive fields for real-time avoidance of moving obstacles.",
-      "projects.p1.li4": "Validated via extensive simulation experiments in dynamic environments.",
-      "projects.p2.title": "Handwritten Digit Classification",
-      "projects.p2.meta": "<em>December 2024 – January 2025</em>",
-      "projects.p2.li1": "Built models using k-NN, Logistic Regression, PCA, DNN, and MLP on MNIST.",
-      "projects.p2.li2": "Used Python, Scikit-Learn, and PyTorch for development and evaluation.",
-      "projects.p3.title": "Diploma Projects Management Application",
-      "projects.p3.meta": "<em>April 2023 – May 2023</em>",
-      "projects.p3.li1": "Web system for diploma project management and evaluation workflow.",
-      "projects.p3.li2": "Student–professor interactions, authentication, and grading.",
-      "projects.p3.li3": "Built with Java, Spring Boot, and MySQL (Scrum).",
-      "projects.p4.title": "Artificial Intelligence Projects",
-      "projects.p4.meta": "<em>April 2023 – May 2023</em>",
-      "projects.p4.li1": "Implemented UCS and A* for labyrinth pathfinding.",
-      "projects.p4.li2": "Two-player strategy game using Minimax (adversarial search).",
-      "projects.p5.title": "CutePy Compiler",
-      "projects.p5.meta": "<em>April 2023 – May 2023</em>",
-      "projects.p5.li1": "Compiler for the CutePy educational language (Python).",
-      "projects.p5.li2": "Supported functions, loops, conditionals; generated RISC-V assembly.",
-      "projects.p6.title": "Sales Commission Management Application",
-      "projects.p6.meta": "<em>December 2022 – January 2023</em>",
-      "projects.p6.li1": "Java GUI app for managing sales agent data and commission reports.",
-      "projects.p6.li2": "Emphasized modular design and multi-format export with clean architecture.",
-
-      // Skills
-      "skills.subtitle": "The skills, tools and technologies I am really good at.",
-
-      // Hobbies
-      "hobbies.subtitle": "What I do in my free time:",
-      "hobbies.p1": "In my free time, I enjoy tinkering with robots, reading about AI, hiking, and building personal coding projects related to automation and control systems.",
-
-      // Contact
-      "contact.subtitle": "Feel free to reach out for collaboration or inquiries:",
-      "contact.emailLabel": "Email:",
-      "contact.githubLabel": "GitHub:",
-      "contact.linkedinLabel": "LinkedIn:",
-
-      // Footer
-      "footer.text": "© 2025 Georgios Sidiropoulos. All rights reserved."
-    },
-
-    el: {
-      // Meta / Head
-      "meta.title": "Georgios Sidiropoulos | Portfolio Ρομποτικής",
-      "meta.description": "Portfolio του Γεώργιου Σιδηρόπουλου — Έργα Ρομποτικής & ML, εμπειρία, δεξιότητες και επικοινωνία.",
-
-      // Generic / Buttons
-      "skip.toMain": "Μετάβαση στο κυρίως περιεχόμενο",
-      "buttons.cv": "⬇️ Λήψη Βιογραφικού",
-      "buttons.top": "↑ Κορυφή",
-      "buttons.topTitle": "Μετάβαση στην κορυφή",
-      "buttons.topAria": "Μετακίνηση στην κορυφή",
-
-      // ARIA / labels
-      "theme.toggle": "Εναλλαγή θέματος",
-      "aria.sidebar": "Πλαϊνό μενού",
-      "aria.navPrimary": "Κύριο μενού",
-      "aria.language": "Γλώσσα",
-      "aria.social": "Κοινωνικοί σύνδεσμοι",
-      "aria.skillsList": "Λίστα δεξιοτήτων με συνδέσμους",
-      "aria.github": "Προφίλ GitHub",
-      "aria.linkedin": "Προφίλ LinkedIn",
-      "aria.email": "Αποστολή email στον Γεώργιο",
-      "aria.welcome": "Καλώς ορίσατε",
-      "alt.profilePic": "Πορτρέτο του Γεώργιου Σιδηρόπουλου",
-
-      // Nav
-      "nav.about": "Σχετικά",
-      "nav.experience": "Εμπειρία",
-      "nav.education": "Σπουδές",
-      "nav.projects": "Έργα",
-      "nav.skills": "Δεξιότητες",
-      "nav.hobbies": "Χόμπι",
-      "nav.contact": "Επικοινωνία",
-
-      // Hero
-      "hero.subtitle": "<strong>🤖 Μηχανικός Λογισμικού Ρομποτικής</strong> — 💼 Πρακτική στο Parity Platform, 📍 Αθήνα, Ελλάδα.",
-
-      // Sections (chips)
-      "sections.about": "Σχετικά",
-      "sections.experience": "Εμπειρία",
-      "sections.education": "Σπουδές",
-      "sections.projects": "Έργα",
-      "sections.skills": "Δεξιότητες",
-      "sections.hobbies": "Χόμπι",
-      "sections.contact": "Επικοινωνία",
-
-      // Overlay
-      "overlay.title": "Καλώς ήρθατε <span class='wave' aria-hidden='true'>👋</span>",
-      "overlay.line1": "Είμαι ο Γεώργιος Σιδηρόπουλος",
-      "overlay.line2": "Μηχανικός Πληροφορικής με πάθος για Ρομποτική και Μηχανική Μάθηση.",
-
-      // About
-      "about.p1": "Είμαι απόφοιτος Μηχανικός Πληροφορικής και Επικοινωνιών του Πανεπιστημίου Ιωαννίνων και εργάζομαι ως Intern Μηχανικός Λογισμικού Ρομποτικής στο Parity Platform. Τα ενδιαφέροντά μου περιλαμβάνουν ρομποτική, τεχνητή νοημοσύνη και μηχανική μάθηση.",
-      "about.p2": "Η διπλωματική μου εργασία, <strong>«Πλοήγηση Κινητού Βραχίονα σε Δυναμικό Περιβάλλον»</strong>, εστιάζει στον σχεδιασμό κίνησης και στην αποφυγή δυναμικών εμποδίων.",
-
-      // Experience
-      "experience.subtitle": "Μια σύντομη σύνοψη από τις πιο πρόσφατες εμπειρίες μου:",
-      "experience.parity.title": "Robotics Engineer Intern <span class='card-meta'>Ιουλ 2025 – Σήμερα</span>",
-      "experience.parity.place": "<em>Parity Platform — Αθήνα, Ελλάδα</em>",
-      "experience.parity.li1": "Συμβολή στην υλοποίηση λογισμικού και την ενοποίηση συστημάτων για έναν ρομποτικό βραχίονα 6 βαθμών ελευθερίας, με στόχο την εγκατάσταση σε γραμμή παραγωγής σύνθετων υλικών.",
-      "experience.parity.li2": "Υποστήριξη αρχιτεκτονικής συστήματος, δημιουργία ρουτινών αυτοματισμού και διασφάλιση αποτελεσματικής διασύνδεσης του ρομπότ με τους συνδεδεμένους αισθητήρες.",
-      "experience.parity.li3": "Στενή συνεργασία με την ομάδα του Τμήματος Ρομποτικής για την ανάπτυξη αξιόπιστου ρομποτικού συστήματος.",
-      "experience.uoi.title": "Παρουσιαστής & Επιδεικτικός Εργαστηρίου Ρομποτικής <span class='card-meta'>Οκτ 2024 – Ιουν 2025</span>",
-      "experience.uoi.place": "<em>Πανεπιστήμιο Ιωαννίνων</em>",
-      "experience.uoi.li1": "Παρουσίαση και επίδειξη του έργου του Εργαστηρίου Ρομποτικής σε μαθητές Γυμνασίου/Λυκείου και επισκέπτες.",
-      "experience.uoi.li2": "Εξήγηση της λειτουργίας ρομποτικών συστημάτων, επίδειξη πραγματικών εφαρμογών και έμπνευση νεότερων ακροατηρίων να ασχοληθούν με την πληροφορική και τη ρομποτική.",
-
-      // Education
-      "education.subtitle": "Το ακαδημαϊκό μου υπόβαθρο και προσόντα:",
-      "education.degreeHTML": "<strong><a href='https://www.cse.uoi.gr/' target='_blank' rel='noopener noreferrer'>Πανεπιστήμιο Ιωαννίνων — Τμήμα Πληροφορικής &amp; Μηχανικών Η/Υ</a></strong><br/>Ενιαίο Δίπλωμα (BSc/MEng) στην Επιστήμη &amp; Μηχανική Υπολογιστών<br/>2019 – 2025 &nbsp;|&nbsp; Βαθμός: <strong>7.8 / 10</strong><br/>Διπλωματική: «Πλοήγηση Κινητού Βραχίονα σε Δυναμικό Περιβάλλον».",
-
-      // Projects
-      "projects.subtitle": "Επιλογή από πρόσφατα έργα μου:",
-      "projects.p1.title": "Πλοήγηση Κινητού Βραχίονα σε Δυναμικό Περιβάλλον",
-      "projects.p1.meta": "<em>Οκτώβριος 2024 – Σήμερα &nbsp;|&nbsp; Διπλωματική εργασία στη Ρομποτική</em>",
-      "projects.p1.li1": "Μοντελοποίηση και προσομοίωση της κινηματικής του Kinova Gen3 Lite (6-DOF).",
-      "projects.p1.li2": "Υλοποίηση του παραδοσιακού Artificial Potential Field (T-APF) με αντιστοίχιση δυνάμεων σε σημεία ελέγχου.",
-      "projects.p1.li3": "Ενσωμάτωση δυναμικών απωθητικών πεδίων για αποφυγή κινούμενων εμποδίων σε πραγματικό χρόνο.",
-      "projects.p1.li4": "Επικύρωση μέσω εκτεταμένων πειραμάτων προσομοίωσης σε δυναμικά περιβάλλοντα.",
-      "projects.p2.title": "Αναγνώριση Χειρόγραφων Ψηφίων",
-      "projects.p2.meta": "<em>Δεκέμβριος 2024 – Ιανουάριος 2025</em>",
-      "projects.p2.li1": "Ανάπτυξη μοντέλων k-NN, Λογιστικής Παλινδρόμησης, PCA, DNN και MLP στο MNIST.",
-      "projects.p2.li2": "Χρήση Python, Scikit-Learn και PyTorch για ανάπτυξη και αξιολόγηση.",
-      "projects.p3.title": "Εφαρμογή Διαχείρισης Διπλωματικών Εργασιών",
-      "projects.p3.meta": "<em>Απρίλιος 2023 – Μάιος 2023</em>",
-      "projects.p3.li1": "Διαδικτυακό σύστημα για διαχείριση διπλωματικών και ροής αξιολόγησης.",
-      "projects.p3.li2": "Αλληλεπίδραση φοιτητή-καθηγητή, αυθεντικοποίηση και βαθμολόγηση.",
-      "projects.p3.li3": "Υλοποίηση με Java, Spring Boot και MySQL (Scrum).",
-      "projects.p4.title": "Έργα Τεχνητής Νοημοσύνης",
-      "projects.p4.meta": "<em>Απρίλιος 2023 – Μάιος 2023</em>",
-      "projects.p4.li1": "Υλοποίηση UCS και A* για εύρεση διαδρομής σε λαβύρινθο.",
-      "projects.p4.li2": "Παιχνίδι δύο παικτών με Minimax (adversarial search).",
-      "projects.p5.title": "Μεταγλωττιστής CutePy",
-      "projects.p5.meta": "<em>Απρίλιος 2023 – Μάιος 2023</em>",
-      "projects.p5.li1": "Μεταγλωττιστής για την εκπαιδευτική γλώσσα CutePy (Python).",
-      "projects.p5.li2": "Υποστήριξη συναρτήσεων, βρόχων, συνθηκών· παραγωγή assembly RISC-V.",
-      "projects.p6.title": "Εφαρμογή Διαχείρισης Προμηθειών Πωλήσεων",
-      "projects.p6.meta": "<em>Δεκέμβριος 2022 – Ιανουάριος 2023</em>",
-      "projects.p6.li1": "Εφαρμογή Java GUI για διαχείριση δεδομένων πωλητών και αναφορών προμηθειών.",
-      "projects.p6.li2": "Έμφαση στη δομοστοιχειωτή σχεδίαση και σε εξαγωγές πολλαπλών μορφών με καθαρή αρχιτεκτονική.",
-
-      // Skills
-      "skills.subtitle": "Οι δεξιότητες, τα εργαλεία και οι τεχνολογίες στις οποίες είμαι πραγματικά καλός.",
-
-      // Hobbies
-      "hobbies.subtitle": "Τι κάνω στον ελεύθερο χρόνο μου:",
-      "hobbies.p1": "Στον ελεύθερο χρόνο μου, μου αρέσει να πειραματίζομαι με ρομπότ, να διαβάζω για ΤΝ, να κάνω πεζοπορία και να υλοποιώ προσωπικά projects γύρω από αυτοματισμούς και συστήματα ελέγχου.",
-
-      // Contact
-      "contact.subtitle": "Επικοινωνήστε μαζί μου για συνεργασία ή απορίες:",
-      "contact.emailLabel": "Email:",
-      "contact.githubLabel": "GitHub:",
-      "contact.linkedinLabel": "LinkedIn:",
-
-      // Footer
-      "footer.text": "© 2025 Georgios Sidiropoulos. Με επιφύλαξη παντός δικαιώματος."
-    }
-  };
-
-  const CV_FILES = {
-    en: "media/cv/Georgios_Sidiropoulos_CV_EN.pdf",
-    el: "media/cv/Georgios_Sidiropoulos_CV_GR.pdf"
-  };
-
-  const langBtns = Array.from(document.querySelectorAll(".lang-btn"));
-  const cvLink  = document.getElementById("cv-download");
-
-  // read saved lang (default EN)
-  let currentLang = localStorage.getItem("lang") || "en";
-  setLang(currentLang);
-
-  langBtns.forEach(btn => {
-    btn.addEventListener("click", () => setLang(btn.dataset.lang));
-  });
-
-  function setLang(lang) {
-    if (!I18N[lang]) lang = "en";
-    currentLang = lang;
-    localStorage.setItem("lang", lang);
-    document.documentElement.setAttribute("lang", lang);
-
-    // pressed state on chips
-    langBtns.forEach(b => b.setAttribute("aria-pressed", String(b.dataset.lang === lang)));
-
-    // swap CV file
-    if (cvLink) cvLink.href = CV_FILES[lang] || CV_FILES.en;
-
-    // apply text/HTML translations
-    document.querySelectorAll("[data-i18n]").forEach(node => {
-      const key = node.getAttribute("data-i18n");
-      const value = I18N[lang][key];
-      if (!value) return;
-      if (value.includes("<")) node.innerHTML = value;
-      else node.textContent = value;
-    });
-
-    // apply attribute translations (title, aria-label, placeholder, alt, meta content)
-    const attrTargets = document.querySelectorAll(
-      "[data-i18n-title], [data-i18n-aria-label], [data-i18n-placeholder], [data-i18n-alt], [data-i18n-content]"
-    );
-    attrTargets.forEach(node => {
-      const map = [
-        ["title", "i18nTitle"],
-        ["aria-label", "i18nAriaLabel"],
-        ["placeholder", "i18nPlaceholder"],
-        ["alt", "i18nAlt"],
-        ["content", "i18nContent"]
-      ];
-      map.forEach(([attr, ds]) => {
-        const dsKey = node.dataset[ds];
-        if (dsKey && I18N[lang][dsKey]) node.setAttribute(attr, I18N[lang][dsKey]);
-      });
-    });
-  }
-</script>
-
+  <!-- Your JS (split) -->
+  <script defer src="assets/js/theme.js"></script>
+  <script defer src="assets/js/i18n.js"></script>
+  <script defer src="assets/js/nav.js"></script>
+  <script defer src="assets/js/overlay.js"></script>
+  <script defer src="assets/js/scrolltop.js"></script>
+  <script defer src="assets/js/hobbies.js"></script>
 </body>
 </html>
