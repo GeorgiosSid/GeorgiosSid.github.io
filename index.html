@@ -7,11 +7,17 @@
   <meta name="description" data-i18n-content="meta.description" content="Portfolio of Georgios Sidiropoulos — Robotics & ML projects, experience, skills, and contact." />
   <link rel="canonical" href="https://georgiossid.github.io/" />
 
-  <!-- Prevent theme flash -->
   <script>
     (() => {
+      const root = document.documentElement;
       const t = localStorage.getItem('theme');
-      if (t === 'dark') document.documentElement.classList.add('dark-theme');
+      if (!t) {
+        // default to DARK the first time
+        root.classList.add('dark-theme');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        root.classList.toggle('dark-theme', t === 'dark');
+      }
     })();
   </script>
 
@@ -27,8 +33,9 @@
   <div id="welcome-overlay" aria-hidden="true">
     <div class="welcome-circle" role="dialog" aria-label="Welcome" data-i18n-aria-label="aria.welcome">
       <h1 class="welcome-title" data-i18n="overlay.title">Welcome <span class="wave" aria-hidden="true">👋</span></h1>
-      <p class="welcome-sub" data-i18n="overlay.line1">I'm Georgios Sidiropoulos</p>
-      <p class="welcome-sub" data-i18n="overlay.line2">A Computer Science Engineer with a passion for Robotics and Machine Learning.</p>
+      <p class="welcome-text" data-i18n="overlay.line1">I'm Georgios Sidiropoulos</p>
+      <p class="welcome-text" data-i18n="overlay.line2">A Computer Science Engineer with a passion for Robotics and Machine Learning.</p>
+  
     </div>
   </div>
 
@@ -254,19 +261,6 @@
           <p class="section-subtitle" data-i18n="hobbies.subtitle">What I do in my free time:</p>
           <div class="card">
             <p data-i18n="hobbies.p1">In my free time, I enjoy tinkering with robots, reading about AI, hiking, and building personal coding projects related to automation and control systems.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Section: Contact (Band A) -->
-      <section id="contact" class="band band-a">
-        <div class="container">
-          <div class="section-chip" data-i18n="sections.contact">Contact</div>
-          <p class="section-subtitle" data-i18n="contact.subtitle">Feel free to reach out for collaboration or inquiries:</p>
-          <div class="card">
-            <p><span data-i18n="contact.emailLabel">Email:</span> <a href="mailto:sidiropoulosgeorgios000@gmail.com">sidiropoulosgeorgios000@gmail.com</a></p>
-            <p><span data-i18n="contact.githubLabel">GitHub:</span> <a href="https://github.com/GeorgiosSid" target="_blank" rel="noopener noreferrer">GeorgiosSid</a></p>
-            <p><span data-i18n="contact.linkedinLabel">LinkedIn:</span> <a href="https://www.linkedin.com/in/sidiropoulosgeorgios/" target="_blank" rel="noopener noreferrer">sidiropoulosgeorgios</a></p>
           </div>
         </div>
       </section>
