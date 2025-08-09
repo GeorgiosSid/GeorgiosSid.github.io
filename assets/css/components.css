@@ -51,9 +51,6 @@
 @media (max-width: 760px){
   .skills-grid{ grid-template-columns: repeat(2, 1fr); }
 }
-@media (max-width: 420px){
-  .skills-grid{ grid-template-columns: 1fr; }
-}
 
 /* Keep your existing item styles */
 .skills-grid a{
