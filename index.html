@@ -2,33 +2,48 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Georgios Sidiropoulos | Robotics Portfolio</title>
+  <meta name="description" content="Portfolio of Georgios Sidiropoulos — Robotics & ML projects, experience, skills, and contact." />
+  <link rel="canonical" href="https://georgiossid.github.io/" />
+
+  <!-- Prevent theme flash -->
+  <script>
+    (() => {
+      const t = localStorage.getItem('theme');
+      if (t === 'dark') document.documentElement.classList.add('dark-theme');
+    })();
+  </script>
+
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body class="home-page">
 
+  <!-- Skip link -->
+  <a class="skip-link" href="#about">Skip to main content</a>
+
   <!-- Welcome Overlay -->
-  <div id="welcome-overlay">
-    <div class="welcome-circle">
-      <h1>Welcome</h1>
-      <p>I'm Georgios Sidiropoulos</p>
-      <p>A Computer Science Engineer with a passion for Robotics and Machine Learning.</p>
+  <div id="welcome-overlay" aria-hidden="true">
+    <div class="welcome-circle" role="dialog" aria-label="Welcome">
+      <h1 class="welcome-title">Welcome <span class="wave" aria-hidden="true">👋</span></h1>
+      <p class="welcome-sub">I'm Georgios Sidiropoulos</p>
+      <p class="welcome-sub">A Computer Science Engineer with a passion for Robotics and Machine Learning.</p>
     </div>
   </div>
 
-  <div id="main-content" class="layout">
-    <aside class="sidebar">
+  <div id="main-content" class="layout" aria-live="polite">
+    <!-- Sidebar -->
+    <aside class="sidebar" aria-label="Sidebar">
       <div class="profile-pic">
-        <img src="media/profile.png" alt="Georgios Sidiropoulos" />
+        <img src="media/profile.png" alt="Portrait of Georgios Sidiropoulos" loading="lazy" width="140" height="140" />
       </div>
 
-      <nav>
+      <nav aria-label="Primary">
         <ul class="sidebar-nav">
           <li><a href="#about" class="active">About</a></li>
           <li><a href="#experience">Experience</a></li>
-          <li><a href="#Education">Education</a></li>
+          <li><a href="#education">Education</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a href="#skills">Skills</a></li>
           <li><a href="#hobbies">Hobbies</a></li>
@@ -37,215 +52,279 @@
 
         <!-- Theme Toggle -->
         <div class="theme-switcher">
-          <button id="theme-toggle" aria-label="Toggle Theme">🌙</button>
+          <button id="theme-toggle" type="button" aria-label="Toggle theme" aria-pressed="false">🌙</button>
         </div>
       </nav>
     </aside>
 
-    <main class="main-content">
+    <!-- Main -->
+    <main class="main-content" id="content">
       <h1><span class="first-name">GEORGIOS</span> <span class="last-name">SIDIROPOULOS</span></h1>
-      <p class="subtitle">Robotics Software Engineer Intern at Parity Platform, Athens, Greece.</p>
+      <p class="subtitle"><strong>🤖 Robotics Software Engineer</strong> — 💼 Intern at Parity Platform, 📍 Athens, Greece.</p>
 
-      <section id="about">
-        <h2>About Me</h2>
-        <p>I am a Computer Science and Engineering graduate from the University of Ioannina, currently working as a Robotics Software Engineering Intern at Parity Platform. My main interests include robotics, artificial intelligence, and machine learning.</p>
-        <p>My diploma thesis, <strong>“Navigation of a Mobile Manipulator in a Dynamic Environment”</strong>, focused on motion planning and avoidance of dynamic obstacles.</p>
-      </section>
+      <!-- Section: About (Band A) -->
+      <section id="about" class="band band-a">
+        <div class="container">
+          <div class="section-chip" aria-hidden="true">About</div>
+            <p>
+              I am a Computer Science and Engineering graduate from the University of Ioannina, currently working as a
+              Robotics Software Engineering Intern at Parity Platform. My main interests include robotics, artificial
+              intelligence, and machine learning.
+            </p>
+            <p>
+              My diploma thesis, <strong>“Navigation of a Mobile Manipulator in a Dynamic Environment”</strong>, focused on motion
+              planning and avoidance of dynamic obstacles.
+            </p>
 
-      <div class="social-icons">
-        <a href="https://github.com/GeorgiosSid" target="_blank"><img src="media/icons/github_icon.png" alt="GitHub" /></a>
-        <a href="https://www.linkedin.com/in/sidiropoulosgeorgios/" target="_blank"><img src="media/icons/linkedin_icon.png" alt="LinkedIn" /></a>
-        <a href="mailto:sidiropoulosgeorgios000@gmail.com"><img src="media/icons/gmail_icon.png" alt="Gmail" /></a>
-      </div>
-
-      <section id="experience">
-        <h2>Experience</h2>
-        <p><strong>Robotics Engineer Intern</strong><br />
-        <em>Parity Platform</em> — Jul 2025 – Present<br />
-        Contributing to the software implementation and system integration of a 6-DOF robotic arm intended for deployment in a production line for composite materials. Supporting architecture, creating automation routines, and integrating sensors into a reliable system.</p>
-
-        <p><strong>Robotics Lab Presenter and Demonstrator</strong><br />
-        <em>University of Ioannina</em> — Oct 2024 – Jun 2025<br />
-        Presented and showcased robotics lab work to school visitors and guests. Demonstrated robot functionality and inspired students toward robotics and computer science.</p>
-      </section>
-
-      <section id="Education">
-        <h2>Education</h2>
-        <p><strong>University of Ioannina</strong> — BSc/MEng in Computer Science & Engineering<br />
-        2018 – 2025<br />
-        Thesis: “Navigation of a Mobile Manipulator in a Dynamic Environment”.</p>
-      </section>
-
-      <section id="projects">
-        <h2>Projects</h2>
-
-        <div class="project">
-          <strong>Navigation of a Mobile Manipulator in a Dynamic Environment</strong><br />
-          <em>October 2024 – Present | Diploma Thesis in Robotics</em>
-          <ul>
-            <li>Modeled and simulated Kinova Gen3 Lite (6-DOF) robot kinematics.</li>
-            <li>Implemented Traditional Artificial Potential Field (T-APF) with control point-based force mapping.</li>
-            <li>Integrated real-time obstacle avoidance using dynamic repulsive fields.</li>
-            <li>Validated methods via extensive simulation experiments in dynamic environments.</li>
-          </ul>
-        </div>
-
-        <div class="project">
-          <strong>Handwritten Digit Classification</strong><br />
-          <em>December 2024 – January 2025</em>
-          <ul>
-            <li>Built models using k-NN, Logistic Regression, PCA, DNN, and MLP on MNIST dataset.</li>
-            <li>Used Python, Scikit-Learn, and PyTorch for model development and evaluation.</li>
-          </ul>
-        </div>
-
-        <div class="project">
-          <strong>Diploma Projects Management Application</strong><br />
-          <em>April 2023 – May 2023</em>
-          <ul>
-            <li>Developed a web system for diploma project management and evaluation workflow.</li>
-            <li>Included student-professor interactions, authentication, and grading.</li>
-            <li>Built with Java, Spring Boot, and MySQL using Scrum methodology.</li>
-          </ul>
-        </div>
-
-        <div class="project">
-          <strong>Artificial Intelligence Projects</strong><br />
-          <em>April 2023 – May 2023</em>
-          <ul>
-            <li>Implemented UCS and A* algorithms for labyrinth pathfinding.</li>
-            <li>Created a two-player strategic game using Minimax with adversarial search.</li>
-          </ul>
-        </div>
-
-        <div class="project">
-          <strong>CutePy Compiler</strong><br />
-          <em>April 2023 – May 2023</em>
-          <ul>
-            <li>Designed and implemented a compiler for the CutePy educational programming language.</li>
-            <li>Supported functions, loops, conditionals, and generated RISC-V assembly code.</li>
-          </ul>
-        </div>
-
-        <div class="project">
-          <strong>Sales Commission Management Application</strong><br />
-          <em>December 2022 – January 2023</em>
-          <ul>
-            <li>Created a Java GUI app for managing sales agent data and calculating commissions.</li>
-            <li>Supported modular design and multiple file format exports with clean architecture.</li>
-          </ul>
+          <div class="social-icons" aria-label="Social links">
+            <a href="https://github.com/GeorgiosSid" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
+              <img src="media/icons/github_icon.png" alt="GitHub" loading="lazy" width="42" height="42" />
+            </a>
+            <a href="https://www.linkedin.com/in/sidiropoulosgeorgios/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
+              <img src="media/icons/linkedin_icon.png" alt="LinkedIn" loading="lazy" width="42" height="42" />
+            </a>
+            <a href="mailto:sidiropoulosgeorgios000@gmail.com" aria-label="Email Georgios">
+              <img src="media/icons/gmail_icon.png" alt="Email" loading="lazy" width="42" height="42" />
+            </a>
+          </div>
         </div>
       </section>
 
+      <!-- Section: Experience (Band B) -->
+      <section id="experience" class="band band-b">
+        <div class="container">
+          <div class="section-chip">Experience</div>
+          <p class="section-subtitle">Here is a quick summary of my most recent experiences:</p>
+          <div class="card">
+            <h3 class="card-title">Robotics Engineer Intern <span class="card-meta">Jul 2025 – Present</span></h3>
+            <p class="card-subtitle"><em>Parity Platform — Athens, Greece</em></p>
+            <ul class="card-list">
+              <li>Contributing to the software implementation and system integration of a 6-DOF robotic arm intended for deployment in a production line for composite materials.</li>
+              <li>Supporting system architecture, creating automation routines, and ensuring the robot integrates effectively with connected sensors.</li>
+              <li>Collaborating closely with the Robotics Department team to build a reliable robotic system.</li>
+            </ul>
+          </div>
 
-      <section id="skills">
-        <h2>Skills</h2>
-        <div class="skills-grid">
-          <a href="https://www.cprogramming.com/" target="_blank"><img src="media/skills/C_logo.svg" alt="C"></a>
-          <a href="https://www.cplusplus.com/" target="_blank"><img src="media/skills/C++_logo.svg" alt="C++"></a>
-          <a href="https://gazebosim.org/" target="_blank"><img src="media/skills/Gazebo_logo.svg" alt="Gazebo"></a>
-          <a href="https://www.gnu.org/software/octave/" target="_blank"><img src="media/skills/gnu_octave_logo.svg" alt="GNU Octave"></a>
-          <a href="https://www.java.com/" target="_blank"><img src="media/skills/java_logo.svg" alt="Java"></a>
-          <a href="https://www.python.org/" target="_blank"><img src="media/skills/python-logo.svg" alt="Python"></a>
-          <a href="https://www.ros.org/" target="_blank"><img src="media/skills/Ros_logo.svg" alt="ROS"></a>
-          <a href="https://www.rviz.org/" target="_blank"><img src="media/skills/Rviz.jpg" alt="RViz"></a>
-          <a href="https://spring.io/projects/spring-framework" target="_blank"><img src="media/skills/spring_framework_logo.svg" alt="Spring"></a>
-          <a href="https://www.mysql.com/" target="_blank"><img src="media/skills/Sql_logo.svg" alt="SQL"></a>
-          <a href="https://www.w3.org/XML/" target="_blank"><img src="media/skills/xml_logo.svg" alt="XML"></a>
+          <div class="card">
+            <h3 class="card-title">Robotics Lab Presenter & Demonstrator <span class="card-meta">Oct 2024 – Jun 2025</span></h3>
+            <p class="card-subtitle"><em>University of Ioannina</em></p>
+            <ul class="card-list">
+              <li>Presented and showcased Robotics Laboratory work to middle/high-school students and guests.</li>
+              <li>Explained how robotic systems function, demonstrated real-world use cases, and inspired younger audiences to pursue computer science and robotics.</li>
+            </ul>
+          </div>
         </div>
       </section>
 
-      <section id="hobbies">
-        <h2>Hobbies</h2>
-        <p>In my free time, I enjoy tinkering with robots, reading about AI, hiking, and building personal coding projects related to automation and control systems.</p>
+      <!-- Section: Education (Band A) -->
+      <section id="education" class="band band-a">
+        <div class="container">
+          <div class="section-chip">Education</div>
+          <p class="section-subtitle">My academic background and qualifications:</p>
+          <div class="card">
+            <p>
+              <strong>
+                <a href="https://www.cse.uoi.gr/" target="_blank" rel="noopener noreferrer">
+                  University of Ioannina — Department of Computer Science &amp; Engineering
+                </a>
+              </strong><br />
+              Integrated Master (BSc/MEng) in Computer Science &amp; Engineering<br />
+              2019 – 2025 &nbsp;|&nbsp; Grade: <strong>7.8 / 10</strong><br />
+              Thesis: “Navigation of a Mobile Manipulator in a Dynamic Environment”.
+            </p>
+          </div>
+        </div>
       </section>
 
-      <section id="contact">
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:sidiropoulosgeorgios000@gmail.com">sidiropoulosgeorgios000@gmail.com</a></p>
-        <p>GitHub: <a href="https://github.com/GeorgiosSid" target="_blank">GeorgiosSid</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/sidiropoulosgeorgios/" target="_blank">sidiropoulosgeorgios</a></p>
+      <!-- Section: Projects (Band B) -->
+      <section id="projects" class="band band-b">
+        <div class="container">
+          <div class="section-chip">Projects</div>
+          <p class="section-subtitle">A selection of my recent projects:</p>
+          <div class="card">
+            <h3 class="card-title">Navigation of a Mobile Manipulator in a Dynamic Environment</h3>
+            <p class="card-subtitle"><em>October 2024 – Present &nbsp;|&nbsp; Diploma Thesis in Robotics</em></p>
+            <ul class="card-list">
+              <li>Modeled and simulated Kinova Gen3 Lite (6-DOF) kinematics.</li>
+              <li>Implemented Traditional Artificial Potential Field (T-APF) with control-point force mapping.</li>
+              <li>Integrated dynamic repulsive fields for real-time avoidance of moving obstacles.</li>
+              <li>Validated via extensive simulation experiments in dynamic environments.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3 class="card-title">Handwritten Digit Classification</h3>
+            <p class="card-subtitle"><em>December 2024 – January 2025</em></p>
+            <ul class="card-list">
+              <li>Built models using k-NN, Logistic Regression, PCA, DNN, and MLP on MNIST.</li>
+              <li>Used Python, Scikit-Learn, and PyTorch for development and evaluation.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3 class="card-title">Diploma Projects Management Application</h3>
+            <p class="card-subtitle"><em>April 2023 – May 2023</em></p>
+            <ul class="card-list">
+              <li>Web system for diploma project management and evaluation workflow.</li>
+              <li>Student–professor interactions, authentication, and grading.</li>
+              <li>Built with Java, Spring Boot, and MySQL (Scrum).</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3 class="card-title">Artificial Intelligence Projects</h3>
+            <p class="card-subtitle"><em>April 2023 – May 2023</em></p>
+            <ul class="card-list">
+              <li>Implemented UCS and A* for labyrinth pathfinding.</li>
+              <li>Two-player strategy game using Minimax (adversarial search).</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3 class="card-title">CutePy Compiler</h3>
+            <p class="card-subtitle"><em>April 2023 – May 2023</em></p>
+            <ul class="card-list">
+              <li>Compiler for the CutePy educational language (Python).</li>
+              <li>Supported functions, loops, conditionals; generated RISC-V assembly.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3 class="card-title">Sales Commission Management Application</h3>
+            <p class="card-subtitle"><em>December 2022 – January 2023</em></p>
+            <ul class="card-list">
+              <li>Java GUI app for managing sales agent data and commission reports.</li>
+              <li>Emphasized modular design and multi-format export with clean architecture.</li>
+            </ul>
+          </div>
+        </div>
       </section>
 
-      <footer>
+      <!-- Section: Skills (Band A) -->
+      <section id="skills" class="band band-a">
+        <div class="container">
+          <div class="section-chip">Skills</div>
+          <p class="section-subtitle">The skills, tools and technologies I am really good at.</p>
+          <div class="skills-grid" aria-label="Skills list with links">
+            <a href="https://www.java.com/" target="_blank" rel="noopener noreferrer"><img src="media/skills/java_logo.svg" alt="Java" loading="lazy" width="60" height="60"><span>Java</span></a>
+            <a href="https://www.python.org/" target="_blank" rel="noopener noreferrer"><img src="media/skills/python-logo.svg" alt="Python" loading="lazy" width="60" height="60"><span>Python</span></a>
+            <a href="https://www.cprogramming.com/" target="_blank" rel="noopener noreferrer"><img src="media/skills/C_logo.svg" alt="C" loading="lazy" width="60" height="60"><span>C</span></a>
+            <a href="https://www.cplusplus.com/" target="_blank" rel="noopener noreferrer"><img src="media/skills/C++_logo.svg" alt="C++" loading="lazy" width="60" height="60"><span>C++</span></a>
+            <a href="https://gazebosim.org/" target="_blank" rel="noopener noreferrer"><img src="media/skills/Gazebo_logo.svg" alt="Gazebo" loading="lazy" width="60" height="60"><span>Gazebo</span></a>
+            <a href="https://www.gnu.org/software/octave/" target="_blank" rel="noopener noreferrer"><img src="media/skills/gnu_octave_logo.svg" alt="GNU Octave" loading="lazy" width="60" height="60"><span>GNU Octave</span></a>
+            <a href="https://www.ros.org/" target="_blank" rel="noopener noreferrer"><img src="media/skills/Ros_logo.svg" alt="ROS" loading="lazy" width="60" height="60"><span>ROS</span></a>
+            <a href="https://www.rviz.org/" target="_blank" rel="noopener noreferrer"><img src="media/skills/Rviz.jpg" alt="RViz" loading="lazy" width="60" height="60"><span>RViz</span></a>
+            <a href="https://spring.io/projects/spring-framework" target="_blank" rel="noopener noreferrer"><img src="media/skills/spring_framework_logo.svg" alt="Spring Framework" loading="lazy" width="60" height="60"><span>Spring</span></a>
+            <a href="https://www.mysql.com/" target="_blank" rel="noopener noreferrer"><img src="media/skills/Sql_logo.svg" alt="SQL/MySQL" loading="lazy" width="60" height="60"><span>SQL</span></a>
+            <a href="https://www.w3.org/XML/" target="_blank" rel="noopener noreferrer"><img src="media/skills/xml_logo.svg" alt="XML" loading="lazy" width="60" height="60"><span>XML</span></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Hobbies (Band B) -->
+      <section id="hobbies" class="band band-b">
+        <div class="container">
+          <div class="section-chip">Hobbies</div>
+          <p class="section-subtitle">What I do in my free time:</p>
+          <div class="card">
+            <p>In my free time, I enjoy tinkering with robots, reading about AI, hiking, and building personal coding projects related to automation and control systems.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Contact (Band A) -->
+      <section id="contact" class="band band-a">
+        <div class="container">
+          <div class="section-chip">Contact</div>
+          <p class="section-subtitle">Feel free to reach out for collaboration or inquiries:</p>
+          <div class="card">
+            <p>Email: <a href="mailto:sidiropoulosgeorgios000@gmail.com">sidiropoulosgeorgios000@gmail.com</a></p>
+            <p>GitHub: <a href="https://github.com/GeorgiosSid" target="_blank" rel="noopener noreferrer">GeorgiosSid</a></p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/sidiropoulosgeorgios/" target="_blank" rel="noopener noreferrer">sidiropoulosgeorgios</a></p>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
         <p>&copy; 2025 Georgios Sidiropoulos. All rights reserved.</p>
       </footer>
     </main>
   </div>
 
-  <button id="scrollToTopBtn" title="Go to top">↑ Top</button>
+  <!-- Scroll to Top Button -->
+  <button id="scrollToTopBtn" title="Go to top" aria-label="Scroll to top">↑ Top</button>
 
-<!-- JS -->
-<script>
-  // Welcome overlay
-  let hasExited = false;
-  const autoDismissTimer = setTimeout(() => {
-    if (hasExited) return;
-    hasExited = true;
-    bounceThenExit();
-  }, 10000);
-  window.addEventListener('click', () => {
-    if (hasExited) return;
-    hasExited = true;
-    clearTimeout(autoDismissTimer);
-    bounceThenExit();
-  });
-
-  function bounceThenExit() {
+  <!-- JS -->
+  <script>
+    // Welcome overlay + reduced motion + ESC
+    const overlay = document.getElementById('welcome-overlay');
     const circle = document.querySelector('.welcome-circle');
-    circle.classList.add('bounce-exit');
-    setTimeout(() => dismissOverlay(), 500);
-  }
+    let hasExited = false;
+    const autoDismissTimer = setTimeout(() => {
+      if (hasExited) return;
+      hasExited = true;
+      bounceThenExit();
+    }, 10000);
 
-  function dismissOverlay() {
-    document.getElementById('welcome-overlay').remove();
-    document.body.classList.add('active');
-  }
+    window.addEventListener('click', () => {
+      if (hasExited) return;
+      hasExited = true;
+      clearTimeout(autoDismissTimer);
+      bounceThenExit();
+    });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') dismissOverlay(); });
 
-  // Scroll to Top
-  const scrollToTopBtn = document.getElementById("scrollToTopBtn");
-  window.addEventListener("scroll", () => {
-    scrollToTopBtn.style.display = window.scrollY > 200 ? "block" : "none";
-    updateActiveLink();
-  });
-
-  scrollToTopBtn.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
-
-  // Active menu highlighting
-  const sections = document.querySelectorAll("section");
-  const navLinks = document.querySelectorAll(".sidebar-nav a");
-
-  function updateActiveLink() {
-    let index = sections.length;
-    while (--index && window.scrollY + 150 < sections[index].offsetTop) {}
-    navLinks.forEach((link) => link.classList.remove("active"));
-    navLinks[index]?.classList.add("active");
-  }
-
-  updateActiveLink();
-
-  // Theme toggle with emoji switch 🌙 / ☀️
-  document.addEventListener('DOMContentLoaded', () => {
-    const toggleBtn = document.getElementById('theme-toggle');
-    const userPref = localStorage.getItem('theme');
-
-    if (userPref === 'dark') {
-      document.body.classList.add('dark-theme');
-      toggleBtn.textContent = '☀️'; // Show sun if dark is active
-    } else {
-      toggleBtn.textContent = '🌙'; // Default to moon
+    function bounceThenExit() {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return dismissOverlay();
+      circle.classList.add('bounce-exit');
+      setTimeout(() => dismissOverlay(), 500);
+    }
+    function dismissOverlay() {
+      overlay?.remove();
+      document.body.classList.add('active');
     }
 
-    toggleBtn.addEventListener('click', () => {
-      document.body.classList.toggle('dark-theme');
-      const isDark = document.body.classList.contains('dark-theme');
-      toggleBtn.textContent = isDark ? '☀️' : '🌙';
-      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    // Scroll to Top
+    const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+    window.addEventListener("scroll", () => {
+      scrollToTopBtn.style.display = window.scrollY > 200 ? "block" : "none";
     });
-  });
-</script>
+    scrollToTopBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
 
+    // Active menu highlighting with IntersectionObserver
+    const navLinks = Array.from(document.querySelectorAll(".sidebar-nav a"));
+    const sections = navLinks
+      .map(a => document.querySelector(a.getAttribute('href')))
+      .filter(Boolean);
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const id = '#' + entry.target.id;
+        navLinks.forEach(l => {
+          const active = (l.getAttribute('href') === id);
+          l.classList.toggle('active', active);
+          if (active) l.setAttribute('aria-current', 'page'); else l.removeAttribute('aria-current');
+        });
+      });
+    }, { rootMargin: '0px 0px -60% 0px', threshold: 0.1 });
+
+    sections.forEach(sec => io.observe(sec));
+
+    // Theme toggle with emoji switch 🌙 / ☀️
+    const toggleBtn = document.getElementById('theme-toggle');
+    const isDark = document.documentElement.classList.contains('dark-theme');
+    toggleBtn.textContent = isDark ? '☀️' : '🌙';
+    toggleBtn.setAttribute('aria-pressed', String(isDark));
+
+    toggleBtn.addEventListener('click', () => {
+      const dark = document.documentElement.classList.toggle('dark-theme');
+      toggleBtn.textContent = dark ? '☀️' : '🌙';
+      toggleBtn.setAttribute('aria-pressed', String(dark));
+      localStorage.setItem('theme', dark ? 'dark' : 'light');
+    });
+  </script>
 </body>
 </html>
