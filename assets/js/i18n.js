@@ -308,8 +308,9 @@
     // Notify listeners (compat: fire both events)
     // Old listeners used window "i18n:changed"; newer code might use "lang:changed".
     const detail = { lang };
-    window.dispatchEvent(new CustomEvent("i18n:changed", { detail }));
-    document.dispatchEvent(new CustomEvent("lang:changed", { detail }));
+   // window.dispatchEvent(new CustomEvent("i18n:changed", { detail }));
+    //document.dispatchEvent(new CustomEvent("lang:changed", { detail }));
+
   }
 
   // expose for other modules

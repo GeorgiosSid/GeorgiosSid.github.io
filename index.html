@@ -1,6 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Prevent hash/scroll restore BEFORE first paint -->
+<!-- Prevent hash/scroll restore BEFORE first paint -->
+<script>
+  (function () {
+    // stop the browser from restoring old scroll
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+
+    // if there's a #hash (e.g., #skills), strip it immediately
+    if (location.hash) {
+      history.replaceState(null, '', location.pathname + location.search);
+    }
+
+    // lock to top for the first couple frames (beats late restores)
+    window.scrollTo(0, 0);
+    requestAnimationFrame(() => window.scrollTo(0, 0));
+    requestAnimationFrame(() => window.scrollTo(0, 0));
+  })();
+</script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title data-i18n="meta.title">Georgios Sidiropoulos | Robotics Portfolio</title>
@@ -28,6 +47,9 @@
 
   <!-- Always start dark before paint -->
   <script>document.documentElement.classList.add('dark-theme');</script>
+  <script>
+    if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+  </script>
 
   <!-- Your CSS (split) -->
   <link rel="stylesheet" href="assets/css/variables.css" />
@@ -315,11 +337,6 @@
           <div class="section-chip" data-i18n="sections.contact">Contact</div>
 
           <div class="contact-hero card">
-            <div class="contact-cta-wrap">
-              <a class="btn-cta" href="mailto:sidiropoulosgeorgios000@gmail.com" data-i18n="contact.cta">
-                Get in touch
-              </a>
-            </div>
 
             <p class="contact-lead" data-i18n="contact.lead">
               What’s next? Feel free to reach out if you’re looking for a developer,

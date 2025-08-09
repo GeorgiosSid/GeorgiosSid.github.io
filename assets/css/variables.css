@@ -13,15 +13,12 @@
 }
 
 .dark-theme {
-  --bg: #0b1017;
-  --text: #e5e7eb;
-  --brand: #a95b3d;
-  --muted: #bfc6d5;
-  --border: #263241;
-  --panel: #121923;
-
-  --band-a: #0f1620;
-  --band-b: #121a25;
-
+  --bg:       #0a0f16;   /* page background */
+  --panel:    #121a24;   /* card background */
+  --band-a:   #0d1521;   /* section A background */
+  --band-b:   #09111a;   /* section B background (darker than A) */
+  --border:   rgba(255,255,255,.10);
+  --text:     #e8eef6;
+  --muted:    #a9b6c7;
   --shadow: 0 16px 32px rgba(0,0,0,.35);
 }

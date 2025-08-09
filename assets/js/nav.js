@@ -1,10 +1,31 @@
-// nav.js — highlight active section
+// nav.js — highlight active section + force start at top
+
 (function () {
-  const navLinks = Array.from(document.querySelectorAll(".sidebar-nav a"));
+  // belt-and-suspenders: also disable restore here
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+
+  function resetToTop() {
+    // strip any hash so browser can't auto-jump
+    if (location.hash) {
+      history.replaceState(null, '', location.pathname + location.search);
+    }
+    // jump to very top (no smooth)
+    window.scrollTo(0, 0);
+  }
+
+  // Run early and late to beat all restore paths
+  document.addEventListener('DOMContentLoaded', resetToTop);
+  window.addEventListener('load', resetToTop, { once: true });
+  window.addEventListener('pageshow', (e) => { if (e.persisted) resetToTop(); });
+
+  // When language changes (from i18n.js)
+  document.addEventListener('lang:changed', resetToTop);
+
+  // ---- Active section highlight (unchanged) ----
+  const navLinks = Array.from(document.querySelectorAll('.sidebar-nav a'));
   const sections = navLinks
     .map(a => document.querySelector(a.getAttribute('href')))
     .filter(Boolean);
-
   if (!sections.length) return;
 
   const io = new IntersectionObserver((entries) => {
