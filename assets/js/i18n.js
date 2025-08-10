@@ -70,7 +70,14 @@
 
       // Education
       "education.subtitle": "My academic background and qualifications:",
-      "education.degreeHTML": "<strong><a href='https://www.cse.uoi.gr/' target='_blank' rel='noopener noreferrer'>University of Ioannina — Department of Computer Science &amp; Engineering</a></strong><br/>Integrated Master (BSc/MEng) in Computer Science &amp; Engineering<br/>2019 – 2025 &nbsp;|&nbsp; Grade: <strong>7.8 / 10</strong><br/>Thesis: “Navigation of a Mobile Manipulator in a Dynamic Environment”.",
+      "education.degreeHTML":
+      "<span class='edu-line'>" +
+        "<img class='edu-logo' src='media/education/cs_uoi_logo.png' alt='University of Ioannina – CSE logo' width='38' height='38'/>" +
+        "<strong><a href='https://www.cse.uoi.gr/' target='_blank' rel='noopener noreferrer'>University of Ioannina — Department of Computer Science &amp; Engineering</a></strong>" +
+      "</span><br/>" +
+      "Integrated Master (BSc/MEng) in Computer Science &amp; Engineering<br/>" +
+      "2019 – 2025 &nbsp;|&nbsp; Grade: <strong>7.8 / 10</strong><br/>" +
+      "Thesis: “Navigation of a Mobile Manipulator in a Dynamic Environment”.",
 
       // Projects
       "projects.subtitle": "A selection of my recent projects:",
@@ -192,7 +199,14 @@
 
       // Education
       "education.subtitle": "Το ακαδημαϊκό μου υπόβαθρο και προσόντα:",
-      "education.degreeHTML": "<strong><a href='https://www.cse.uoi.gr/' target='_blank' rel='noopener noreferrer'>Πανεπιστήμιο Ιωαννίνων — Τμήμα Πληροφορικής &amp; Μηχανικών Η/Υ</a></strong><br/>Ενιαίο Δίπλωμα (BSc/MEng) στην Επιστήμη &amp; Μηχανική Υπολογιστών<br/>2019 – 2025 &nbsp;|&nbsp; Βαθμός: <strong>7.8 / 10</strong><br/>Διπλωματική: «Πλοήγηση Κινητού Βραχίονα σε Δυναμικό Περιβάλλον».",
+      "education.degreeHTML":
+      "<span class='edu-line'>" +
+        "<img class='edu-logo' src='media/education/cs_uoi_logo.png' alt='Πανεπιστήμιο Ιωαννίνων – Λογότυπο Τμήματος Πληροφορικής' width='38' height='38'/>" +
+        "<strong><a href='https://www.cse.uoi.gr/' target='_blank' rel='noopener noreferrer'>Πανεπιστήμιο Ιωαννίνων — Τμήμα Πληροφορικής &amp; Μηχανικών Η/Υ</a></strong>" +
+      "</span><br/>" +
+      "Ενιαίο Δίπλωμα (BSc/MEng) στην Επιστήμη &amp; Μηχανική Υπολογιστών<br/>" +
+      "2019 – 2025 &nbsp;|&nbsp; Βαθμός: <strong>7.8 / 10</strong><br/>" +
+      "Διπλωματική: «Πλοήγηση Κινητού Βραχίονα σε Δυναμικό Περιβάλλον».",
 
       // Projects
       "projects.subtitle": "Επιλογή από πρόσφατα έργα μου:",
