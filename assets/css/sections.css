@@ -100,3 +100,28 @@
   padding:.35rem .6rem; border-radius:999px; border:1px solid var(--border);
   background:var(--panel); cursor:pointer; font-size:.9rem;
 }
+/* Project media grid: max two per row */
+.proj-media{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr)); /* hard cap: 2 columns */
+  gap: .75rem;
+  margin-top: .5rem;
+}
+
+.proj-media video,
+.proj-media img{
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  display: block;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #000;
+}
+
+/* Stack to one column on small screens */
+@media (max-width: 720px){
+  .proj-media{ grid-template-columns: 1fr; }
+  .proj-media video,
+  .proj-media img{ height: 200px; }
+}

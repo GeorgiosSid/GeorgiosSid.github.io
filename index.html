@@ -148,6 +148,10 @@
             <a href="https://www.linkedin.com/in/sidiropoulosgeorgios/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" data-i18n-aria-label="aria.linkedin">
               <img src="media/icons/linkedin_icon.png" alt="LinkedIn" loading="lazy" width="42" height="42" />
             </a>
+              <a href="https://www.kaggle.com/sidiropouloscsuoi" target="_blank" rel="noopener noreferrer"
+              aria-label="Kaggle Profile" data-i18n-aria-label="aria.kaggle">
+              <img src="media/icons/kaggle_icon.svg" alt="Kaggle" loading="lazy" width="44" height="44" />
+            </a>
             <a href="mailto:sidiropoulosgeorgios000@gmail.com" aria-label="Email Georgios" data-i18n-aria-label="aria.email">
               <img src="media/icons/gmail_icon.png" alt="Email" loading="lazy" width="42" height="42" />
             </a>
@@ -217,6 +221,30 @@
               <li data-i18n="projects.p1.li3">Integrated dynamic repulsive fields for real-time avoidance of moving obstacles.</li>
               <li data-i18n="projects.p1.li4">Validated via extensive simulation experiments in dynamic environments.</li>
             </ul>
+              <!-- Media strip (GIFs / short MP4 loops) -->
+          <div class="proj-media">
+            <!-- MP4 #1 — Gazebo (2x) -->
+            <video class="proj-vid" data-rate="2" autoplay muted loop playsinline preload="metadata"
+                  aria-label="Multiple obstacles influence — Gazebo (2x)">
+              <source src="media/projects/manipulator/Multiple_Obstacles_Influence_Different_Control_Points_gazebo.mp4" type="video/mp4">
+            </video>
+
+            <!-- MP4 #2 — RViz (1x, normal speed) -->
+            <video class="proj-vid" data-rate="1" autoplay muted loop playsinline preload="metadata"
+                  aria-label="Multiple obstacles influence — RViz (1x)">
+              <source src="media/projects/manipulator/Multiple_Obstacles_Influence_Different_Control_Points_rviz.mp4" type="video/mp4">
+            </video>
+
+            <!-- GIFs (speed is baked-in) -->
+            <img class="proj-img"
+                src="media/projects/manipulator/dynamic_repulsive_vector_field.gif"
+                alt="Dynamic repulsive vector field">
+
+            <img class="proj-img"
+                src="media/projects/manipulator/dynamic_sphere_avoidance_rviz.gif"
+                alt="Dynamic sphere avoidance in RViz">
+          </div>
+
           </div>
 
           <div class="card">
@@ -227,7 +255,7 @@
               <li data-i18n="projects.p2.li2">Used Python, Scikit-Learn, and PyTorch for development and evaluation.</li>
             </ul>
           </div>
-
+          <!-- 
           <div class="card">
             <h3 class="card-title" data-i18n="projects.p3.title">Diploma Projects Management Application</h3>
             <p class="card-subtitle" data-i18n="projects.p3.meta"><em>April 2023 – May 2023</em></p>
@@ -264,6 +292,7 @@
               <li data-i18n="projects.p6.li2">Emphasized modular design and multi-format export with clean architecture.</li>
             </ul>
           </div>
+          -->
         </div>
       </section>
 
@@ -408,6 +437,7 @@
   <script defer src="assets/js/nav.js"></script>
   <script defer src="assets/js/overlay.js"></script>
   <script defer src="assets/js/scrolltop.js"></script>
+  <script defer src="assets/js/projects.js"></script>
   <script defer src="assets/js/hobbies.js"></script>
   <script defer src="assets/js/contact.js"></script>
 </body>

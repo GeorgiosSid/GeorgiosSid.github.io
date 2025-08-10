@@ -13,6 +13,7 @@
       "buttons.topAria": "Scroll to top",
 
       // ARIA / labels
+      "aria.kaggle": "Kaggle Profile",
       "theme.toggle": "Toggle theme",
       "aria.sidebar": "Sidebar",
       "aria.navPrimary": "Primary navigation",
@@ -125,7 +126,8 @@
     el: {
       "meta.title": "Georgios Sidiropoulos | Portfolio",
       "meta.description": "Portfolio του Γεώργιου Σιδηρόπουλου — Έργα Ρομποτικής & ML, εμπειρία, δεξιότητες και επικοινωνία.",
-
+      // inside I18N.el
+      "aria.kaggle": "Προφίλ Kaggle",
       // Generic / Buttons
       "skip.toMain": "Μετάβαση στο κυρίως περιεχόμενο",
       "buttons.cv": "⬇️ Λήψη Βιογραφικού",
