@@ -7,7 +7,7 @@
   color: var(--muted);
   border: 1px solid var(--border);
   border-radius: 999px;
-  background: rgba(255,255,255,.06);
+  background: rgba(231, 153, 6, 0.06);
   backdrop-filter: blur(2px);
   box-shadow: 0 2px 8px rgba(0,0,0,.08);
 }
@@ -137,7 +137,6 @@
 }
 
 /* --- Photo thumbnail markers on map --- */
-.photo-marker {}
 .photo-marker .marker-inner{
   display:block; width:42px; height:42px; border-radius:999px;
   background-size:cover; background-position:center;
